@@ -13,6 +13,7 @@ public class IngredientObject : ScriptableObject
 public class Ingredient
 {
     [SerializeField] private GameObject prefab;
+    [SerializeField] private Sprite sprite;
     [SerializeField] private string ingredientName;
     [SerializeField] private IngredientType ingredientType;
     [SerializeField] private IngredientLand ingredientLand;
@@ -23,6 +24,7 @@ public class Ingredient
     public IngredientType IngredientType { get => ingredientType; }
     public IngredientLand IngredientLand { get => ingredientLand; }
     public string FunnyDescription { get => funnyDescription; }
+    public Sprite Sprite { get => sprite; }
 }
 
 public enum IngredientType
