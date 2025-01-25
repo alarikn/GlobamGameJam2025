@@ -50,21 +50,21 @@ public class StoreScript : MonoBehaviour
 
     public void selectIngredient1()
     {
-        inventoryManager.addIngredient(option_1_Ingredient);
+        inventoryManager.AddIngredient(option_1_Ingredient);
 
         closeStore();
     }
 
     public void selectIngredient2()
     {
-        inventoryManager.addIngredient(option_2_Ingredient);
+        inventoryManager.AddIngredient(option_2_Ingredient);
 
         closeStore();
     }
 
     public void selectIngredient3()
     {
-        inventoryManager.addIngredient(option_3_Ingredient);
+        inventoryManager.AddIngredient(option_3_Ingredient);
 
         closeStore();
     }

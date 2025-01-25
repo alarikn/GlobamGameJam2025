@@ -7,6 +7,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private IngredientManager ingredientManager;
     [SerializeField] private InventorySpawn spawner;
     [SerializeField] private List<Ingredient> currentDeck = new List<Ingredient>();
+    [SerializeField] private int spawnCount = 4;
 
     private List<Ingredient> remainingIngredients = new List<Ingredient>();
 
@@ -22,7 +23,7 @@ public class InventoryManager : MonoBehaviour
 
         remainingIngredients = currentDeck.OrderBy(x => Random.value).ToList();
 
-        spawnNewIngredients();
+        SpawnNewIngredients();
     }
 
     public List<Ingredient> CreateBaseDeck()
@@ -40,16 +41,16 @@ public class InventoryManager : MonoBehaviour
         return ingredients;
     }
 
-    public void addIngredient(Ingredient new_ingredient)
+    public void AddIngredient(Ingredient new_ingredient)
     {
         currentDeck.Add(new_ingredient);
     }
 
-    public void spawnNewIngredients()
+    public void SpawnNewIngredients()
     {
         var spawnedItems = new List<Ingredient>();
 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < spawnCount; i++)
         {
             var last = remainingIngredients[remainingIngredients.Count - 1];
             spawnedItems.Add(last);

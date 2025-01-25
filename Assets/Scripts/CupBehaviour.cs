@@ -61,7 +61,7 @@ public class CupBehavior : MonoBehaviour
         addedIngredients.Clear();
         current_customer.newOrder();
         trigger.enabled = true;
-        inventoryManager.spawnNewIngredients();
+        inventoryManager.SpawnNewIngredients();
     }
 
     public void newCustomer(Customer new_customer)
