@@ -7,26 +7,39 @@ public class InventorySpawn : MonoBehaviour
     [SerializeField] private GameObject defaultPrefab;
     [SerializeField] private List<Transform> spawnPositions = new();
     [SerializeField] private List<IngredientBehavior> spawned = new();
+    [SerializeField] private Transform drawSpawn;
 
     Coroutine routine = null;
 
     public List<IngredientBehavior> Spawned { get => spawned; }
 
-    public void SpawnIngredients(List<Ingredient> ingredients)
+    public void DrawIngredients(List<Ingredient> ingredients)
+    {
+        SpawnIngredients(ingredients, drawSpawn);
+    }
+
+    public void SpawnIngredients(List<Ingredient> ingredients, Transform spawn = null)
     {
         if (routine == null)
         {
-            var routine = StartCoroutine(SpawnIngredientsRoutine(ingredients));
+            var routine = StartCoroutine(SpawnIngredientsRoutine(ingredients, spawn));
         }
     }
 
-    public IEnumerator SpawnIngredientsRoutine(List<Ingredient> ingredients)
+    public IEnumerator SpawnIngredientsRoutine(List<Ingredient> ingredients, Transform spawn = null)
     {
         for (int i = 0; i < ingredients.Count; i++)
         {
             var ingredient = ingredients[i];
             var prefab = ingredient.Prefab ? ingredient.Prefab : defaultPrefab;
-            var obj = GameObject.Instantiate(prefab, spawnPositions[i].position, Quaternion.identity);
+
+            var currentSpawn = spawn;
+            if (spawn == null)
+                currentSpawn = spawnPositions[i];
+
+            Debug.Log(currentSpawn.gameObject.name + $" {i}");
+
+            var obj = GameObject.Instantiate(prefab, currentSpawn.position, Quaternion.identity);
             var ing = obj.GetComponent<IngredientBehavior>();
             ing.SetIngredient(ingredient);
             Spawned.Add(ing);

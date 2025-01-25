@@ -69,9 +69,14 @@ public class InventoryManager : MonoBehaviour
 
     public void SpawnNewIngredients()
     {
+        SpawnNewIngredients(spawnCount);
+    }
+
+    public void SpawnNewIngredients(int count, bool draw = false)
+    {
         var spawnedItems = new List<Ingredient>();
 
-        for (int i = 0; i < spawnCount; i++)
+        for (int i = 0; i < count; i++)
         {
             if (remainingIngredients.Count == 0)
             {
@@ -83,7 +88,14 @@ public class InventoryManager : MonoBehaviour
             remainingIngredients.RemoveAt(remainingIngredients.Count - 1);
         }
 
-        spawner.SpawnIngredients(spawnedItems);
+        if (draw)
+        {
+            spawner.DrawIngredients(spawnedItems);
+        }
+        else
+        {
+            spawner.SpawnIngredients(spawnedItems);
+        }
     }
 
     public void Discard(Ingredient ingredient)
@@ -98,14 +110,35 @@ public class InventoryManager : MonoBehaviour
             if (ing == null)
                 continue;
 
-            Discard(ing.Ingredient);
-            Destroy(ing.gameObject);
+            DiscardAndDestroy(ing);
         }
         spawner.Spawned.Clear();
+    }
+
+    private void DiscardAndDestroy(IngredientBehavior ing)
+    {
+        Discard(ing.Ingredient);
+        Destroy(ing.gameObject);
     }
 
     public List<Ingredient> GetCurrentDeck()
     {
         return currentDeck;
+    }
+
+    public void TriggerDraw(int count)
+    {
+        var spawned = spawner.Spawned.Where(x => x != null);
+
+        if (count > spawnCount)
+            count = spawned.Count();
+
+        if (count <= 0)
+            return;
+
+        foreach (var s in spawned.OrderBy(x => Guid.NewGuid()).Take(count))
+            DiscardAndDestroy(s);
+
+        SpawnNewIngredients(count, true);
     }
 }

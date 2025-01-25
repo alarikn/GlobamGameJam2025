@@ -35,14 +35,16 @@ public class CupBehavior : MonoBehaviour
             Destroy(ingredientBehavior.gameObject);
             //ingredientBehavior.gameObject.SetActive(false);
 
+            var last = addedIngredients.Count > 3;
+
+            CheckSpecial(ing, last);
+
             if (addedIngredients.Count > 3)
             {
                 CheckScore();
+                return;
             }
-            else
-            {
 
-            }
         }
     }
 
@@ -52,11 +54,26 @@ public class CupBehavior : MonoBehaviour
         StartCoroutine(CheckScoreRoutine());
     }
 
+    public void CheckSpecial(Ingredient ing, bool last)
+    {
+        switch (ing.SpecialMove)
+        {
+            case SpecialMove.Draw:
+                inventoryManager.TriggerDraw(ing.Score);
+                break;
+            case SpecialMove.MindControl:
+
+                break;
+            default:
+                return;
+        }
+    }
+
     public IEnumerator CheckScoreRoutine()
     {
         inventoryManager.DiscardOnTable();
 
-        cupAnimator.Play("CloseLid",0,0);
+        cupAnimator.Play("CloseLid", 0, 0);
 
         var scoring = (add: 0, multi: 1);
         foreach (var ing in addedIngredients)

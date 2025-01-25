@@ -40,7 +40,8 @@ public class Ingredient
     public Sprite Sprite { get => sprite; }
     public IngredientType IngredientTarget { get => ingredientTarget; }
     public IngredientLand LandTarget { get => landTarget; }
-
+    public SpecialMove SpecialMove { get => specialMove; }
+    public int Score { get => score; }
 
     public void EvaluatePoints(List<Ingredient> ingredients, out int add, out int multi)
     {
@@ -59,7 +60,7 @@ public class Ingredient
                 break;
         }
 
-        var value = count * score;
+        var value = count * Score;
 
         switch (countType)
         {
@@ -74,14 +75,14 @@ public class Ingredient
 
     public string GetDescription(bool skipSpecial = false)
     {
-        if (!skipSpecial && specialMove != SpecialMove.None)
+        if (!skipSpecial && SpecialMove != SpecialMove.None)
         {
-            switch (specialMove)
+            switch (SpecialMove)
             {
                 case SpecialMove.Variety:
                     return $"If all ingredients are different <b>land</b>.\n" + GetScoreString();
                 case SpecialMove.Draw:
-                    return $"<b>Trash {score}</b> random ingredients and <b>take {score}</b> ingredients";
+                    return $"<b>Trash {Score}</b> random ingredients and <b>take {Score}</b> ingredients";
             }
         }
 
@@ -111,9 +112,9 @@ public class Ingredient
         switch (countType)
         {
             case CountType.Add:
-                return $"add <b>{score}</b> score";
+                return $"add <b>{Score}</b> score";
             case CountType.Multi:
-                return $"add <b>{score}</b> score multiplier";
+                return $"add <b>{Score}</b> score multiplier";
             default:
                 return string.Empty;
         }
@@ -137,7 +138,8 @@ public enum SpecialMove
 {
     None = 0,
     Variety,
-    Draw
+    Draw,
+    MindControl
 }
 
 public enum IngredientType
