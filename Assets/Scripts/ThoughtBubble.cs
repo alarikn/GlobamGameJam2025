@@ -1,5 +1,8 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -10,6 +13,8 @@ public class ThoughtBubble : MonoBehaviour
     public RectTransform image_panel;
     public GameObject image_prefab;
     public TextMeshProUGUI text;
+    [SerializeField] private TextMeshProUGUI score_text;
+    [SerializeField] private GameObject score_text_end_pos;
 
     private List<Image> instantated_images = new List<Image>();
     int required_score = 0;
@@ -48,29 +53,56 @@ public class ThoughtBubble : MonoBehaviour
         text.color = Color.black;
     }
 
-    public void checkOrder(List<int> correct_image_indexes, float gotten_score)
+    public IEnumerator CheckOrder(List<Ingredient> used_ingredients, List<Ingredient> preferred_ingredients, float base_score, CustomerVisualizer customerVisualizer)
     {
-        // Change color for all the image outlines
-        for (int i = 0; i < image_panel.childCount; i++)
+        float multiplied_score = base_score;
+
+        // Multiply the score
+        for (int i = 0; i < preferred_ingredients.Count; i++)
         {
-            if (correct_image_indexes.Contains(i))
+            bool was_used = false;
+            foreach (Ingredient ingredient in used_ingredients)
             {
-                instantated_images[i].color = Color.green;
+                float current_multipler = 2f;
+                if (ingredient == preferred_ingredients[i])
+                {
+                    was_used = true;
+                    instantated_images[i].color = Color.green;
+
+                    // Multiply score
+                    multiplied_score *= current_multipler;
+                    current_multipler = 1f + ((current_multipler - 1f) / 2f);
+
+                    score_text.transform.position = instantated_images[i].transform.position;
+                    score_text.text = multiplied_score.ToString();
+
+                    yield return new WaitForSeconds(0.5f);
+                }
             }
-            else
+
+            // Change color to red if was not used at all
+            if (!was_used)
             {
                 instantated_images[i].color = Color.red;
             }
         }
 
+        score_text.transform.position = score_text_end_pos.transform.position;
+
+        yield return new WaitForSeconds(1f);
+
         // Change color for the score text
-        if (gotten_score >= required_score)
+        if (multiplied_score >= required_score)
         {
             text.color = Color.green;
+
+            customerVisualizer.CustomerHappy();
         }
         else
         {
             text.color = Color.red;
+
+            customerVisualizer.CustomerDisappointed();
         }
     }
 }

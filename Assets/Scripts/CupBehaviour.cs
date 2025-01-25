@@ -59,7 +59,7 @@ public class CupBehavior : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        current_customer.checkOrder(addedIngredients, score);
+        yield return StartCoroutine(current_customer.checkOrder(addedIngredients, score));
 
         yield return new WaitForSeconds(1.5f);
         current_customer.Visualizer.RemoveCustomerVisuals();
