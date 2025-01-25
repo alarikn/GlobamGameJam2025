@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Tapioca Boba
   m_EditorClassIdentifier: 
   ingredient:
-    prefab: {fileID: 0}
+    prefab: {fileID: 7872539831346592006, guid: eaad57e667318fa46aed3554902ea063, type: 3}
     sprite: {fileID: 0}
     ingredientName: Tapioca Boba
     ingredientType: 0
     ingredientLand: 2
-    funnyDescription: 
+    funnyDescription: Standard boba, chewy sweet goodness.
     powerType: 0
     countType: 0
     ingredientTarget: 0

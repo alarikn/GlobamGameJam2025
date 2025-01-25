@@ -18,7 +18,7 @@ MonoBehaviour:
     ingredientName: Iced Tea
     ingredientType: 1
     ingredientLand: 2
-    funnyDescription: 
+    funnyDescription: Arizona
     powerType: 0
     countType: 0
     ingredientTarget: 0

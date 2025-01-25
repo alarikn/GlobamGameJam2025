@@ -18,7 +18,7 @@ MonoBehaviour:
     ingredientName: Cabbage
     ingredientType: 3
     ingredientLand: 1
-    funnyDescription: 
+    funnyDescription: 1 tbsp soysauce, 2 tsb Shaoxing wine and 1 tbsp of water.
     powerType: 0
     countType: 0
     ingredientTarget: 0
