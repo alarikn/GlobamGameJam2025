@@ -28,7 +28,8 @@ public class Customer : MonoBehaviour
         visualizer.SpawnCustomerVisuals();
 
         // Create a list of the possible Ingredients
-        List<Ingredient> possible_ingredients = inventoryManager.CurrentDeck;
+        List<Ingredient> possible_ingredients = new List<Ingredient>();
+        possible_ingredients.AddRange(inventoryManager.CurrentDeck);
 
         int how_many_preferences = Mathf.Clamp(1 + (int)(day / how_many_days_for_more_preferences), 1, 4);
 
