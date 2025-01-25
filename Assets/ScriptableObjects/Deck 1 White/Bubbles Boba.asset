@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bubbles Boba
   m_EditorClassIdentifier: 
   ingredient:
-    prefab: {fileID: 0}
+    prefab: {fileID: 7872539831346592006, guid: 9ecd8ac923ad12d4f8004f8c83934fef, type: 3}
     sprite: {fileID: 0}
     ingredientName: Bubbles Boba
     ingredientType: 0

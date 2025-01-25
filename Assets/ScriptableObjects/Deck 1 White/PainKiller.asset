@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PainKiller
   m_EditorClassIdentifier: 
   ingredient:
-    prefab: {fileID: 0}
+    prefab: {fileID: 7872539831346592006, guid: eb703eda971d84f47bb36dd8691cb04b, type: 3}
     sprite: {fileID: 0}
     ingredientName: PainKiller
     ingredientType: 0

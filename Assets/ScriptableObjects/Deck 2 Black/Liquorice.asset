@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Liquorice
   m_EditorClassIdentifier: 
   ingredient:
-    prefab: {fileID: 0}
+    prefab: {fileID: 7872539831346592006, guid: dfa4d300446266b459223ff0c098e215, type: 3}
     sprite: {fileID: 0}
     ingredientName: Liquorice
     ingredientType: 0

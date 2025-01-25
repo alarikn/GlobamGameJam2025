@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredient:
     prefab: {fileID: 7872539831346592006, guid: fd09160863693b04ba57ec29b987ef2f, type: 3}
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: c808375bee80cd8439528b2dc0d5f0ba, type: 3}
     ingredientName: Green Tea
     ingredientType: 3
     ingredientLand: 1

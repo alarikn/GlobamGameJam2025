@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredient:
     prefab: {fileID: 7872539831346592006, guid: 557956f4dc1950b4ca049ead05892a5b, type: 3}
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 17d3bf2480d2669498a283b2b5e6b8a3, type: 3}
     ingredientName: Oat Milk
     ingredientType: 2
     ingredientLand: 0

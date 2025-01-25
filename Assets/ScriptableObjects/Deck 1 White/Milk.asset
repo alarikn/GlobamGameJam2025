@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredient:
     prefab: {fileID: 7872539831346592006, guid: 79e02b63290e78e4c87a53306acd993b, type: 3}
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: fc719eafe823fb64d8c8bd0b90bc7a26, type: 3}
     ingredientName: Milk
     ingredientType: 2
     ingredientLand: 0

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredient:
     prefab: {fileID: 7872539831346592006, guid: 6ec8b5fc5c394104aa316b420e91bec2, type: 3}
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 967d3a49c1f23554ea78e69d844c3501, type: 3}
     ingredientName: Black Tea
     ingredientType: 1
     ingredientLand: 2
