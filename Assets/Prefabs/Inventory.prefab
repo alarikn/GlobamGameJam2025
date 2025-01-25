@@ -196,7 +196,7 @@ Transform:
   m_GameObject: {fileID: 1906539457400986952}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.292, y: 0.818, z: 0}
+  m_LocalPosition: {x: 1.734, y: 0.818, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -325,6 +325,7 @@ MonoBehaviour:
   - {fileID: 3149129748679916204}
   spawned: []
   drawSpawn: {fileID: 2883077794423269505}
+  spawnDelay: 0.2
 --- !u!1 &5783339639135737517
 GameObject:
   m_ObjectHideFlags: 0

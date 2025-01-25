@@ -8,6 +8,7 @@ public class InventorySpawn : MonoBehaviour
     [SerializeField] private List<Transform> spawnPositions = new();
     [SerializeField] private List<IngredientBehavior> spawned = new();
     [SerializeField] private Transform drawSpawn;
+    [SerializeField] private float spawnDelay = 0.5f;
 
     Coroutine routine = null;
 
@@ -43,7 +44,7 @@ public class InventorySpawn : MonoBehaviour
             var ing = obj.GetComponent<IngredientBehavior>();
             ing.SetIngredient(ingredient);
             Spawned.Add(ing);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(spawnDelay);
         }
         routine = null;
     }

@@ -18,6 +18,6 @@ public class IngredientUI : MonoBehaviour
         funnyDescriptionT.text = ingredient.FunnyDescription;
 
         colorImage.sprite = IngredientManager.TypeSprites[ingredient.IngredientType];
-        colorImage.color = IngredientManager.LandColors[ingredient.IngredientLand];
+        //colorImage.color = IngredientManager.LandColors[ingredient.IngredientLand];
     }
 }
