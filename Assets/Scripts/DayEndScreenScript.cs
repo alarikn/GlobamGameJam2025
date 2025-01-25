@@ -1,15 +1,17 @@
+using System;
 using TMPro;
 using UnityEngine;
 
 public class DayEndScreenScript : MonoBehaviour
 {
     [SerializeField] private CupBehavior cupBehavior;
+    public Action OnDayEnd;
     private CanvasGroup canvasGroup;
     private float fade_speed = 0.5f;
     [SerializeField] private TextMeshProUGUI day_text;
     private bool new_day = false;
     private bool fade_in = false;
-    
+
     void Start()
     {
         canvasGroup = GetComponent<CanvasGroup>();
@@ -52,5 +54,6 @@ public class DayEndScreenScript : MonoBehaviour
         new_day = false;
         cupBehavior.NewCustomer(true);
         gameObject.SetActive(false);
+        OnDayEnd?.Invoke();
     }
 }
