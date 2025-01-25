@@ -122,7 +122,6 @@ public class CupBehavior : MonoBehaviour
         if (customer_number >= customers_in_a_day)
         {
             current_customer.ThoughtBubble.gameObject.SetActive(false);
-            storeScript.OpenStore();
             day++;
             dayEndScreenScript.EndDay(day);
         }
