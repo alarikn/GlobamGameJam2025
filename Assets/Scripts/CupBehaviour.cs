@@ -74,17 +74,18 @@ public class CupBehavior : MonoBehaviour
 
     public void CheckSpecial(Ingredient ing, bool last)
     {
-        switch (ing.SpecialMove)
-        {
-            case SpecialMove.Draw:
-                inventoryManager.TriggerDraw(ing.Score);
-                break;
-            case SpecialMove.MindControl:
-
-                break;
-            default:
-                return;
-        }
+        if (!last)
+            switch (ing.SpecialMove)
+            {
+                case SpecialMove.Draw:
+                    inventoryManager.TriggerDraw(ing.Score);
+                    break;
+                case SpecialMove.MindControl:
+                    current_customer.TriggerMindControl(ing.Score);
+                    break;
+                default:
+                    return;
+            }
     }
 
     public IEnumerator CheckScoreRoutine()
@@ -120,7 +121,8 @@ public class CupBehavior : MonoBehaviour
 
         if (customer_number >= customers_in_a_day)
         {
-            current_customer.thoughtBubble.gameObject.SetActive(false);
+            current_customer.ThoughtBubble.gameObject.SetActive(false);
+            storeScript.OpenStore();
             day++;
             dayEndScreenScript.EndDay(day);
         }
@@ -134,7 +136,7 @@ public class CupBehavior : MonoBehaviour
     {
         if (new_day)
         {
-            current_customer.thoughtBubble.gameObject.SetActive(true);
+            current_customer.ThoughtBubble.gameObject.SetActive(true);
             customer_number = 1;
         }
         else
@@ -143,7 +145,7 @@ public class CupBehavior : MonoBehaviour
         }
 
         addedIngredients.Clear();
-        current_customer.thoughtBubble.HideMultipliedScoreText();
+        current_customer.ThoughtBubble.HideMultipliedScoreText();
         current_customer.newOrder(day);
         trigger.enabled = true;
         inventoryManager.SpawnNewIngredients();

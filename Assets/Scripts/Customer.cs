@@ -1,20 +1,21 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
-using System.Collections;
+using Random = UnityEngine.Random;
 
 public class Customer : MonoBehaviour
 {
     //[SerializeField] private IngredientManager ingredientManager;
     [SerializeField] private InventoryManager inventoryManager;
-    public ThoughtBubble thoughtBubble;
+    [SerializeField] private ThoughtBubble thoughtBubble;
 
     private CustomerVisualizer visualizer;
     public CustomerVisualizer Visualizer { get { return visualizer; } }
+    public ThoughtBubble ThoughtBubble { get => thoughtBubble; }
 
     [SerializeField] private int how_many_days_for_more_preferences = 3;
-    private List<Ingredient> preferred_ingredients = new List<Ingredient>();
     public int required_score = 0;
 
     public void Start()
@@ -25,14 +26,13 @@ public class Customer : MonoBehaviour
     public void newOrder(int day)
     {
         visualizer.SpawnCustomerVisuals();
-        preferred_ingredients.Clear();
 
         // Create a list of the possible Ingredients
-        List<Ingredient> possible_ingredients = new List<Ingredient>();
-        possible_ingredients.AddRange(inventoryManager.GetCurrentDeck());
+        List<Ingredient> possible_ingredients = inventoryManager.CurrentDeck;
 
         int how_many_preferences = Mathf.Clamp(1 + (int)(day / how_many_days_for_more_preferences), 1, 4);
 
+        var preferred_ingredients = new List<Ingredient>();
         // Randomly select preferred Ingredients
         for (int i = 0; i < how_many_preferences; i++)
         {
@@ -45,13 +45,27 @@ public class Customer : MonoBehaviour
         required_score = Random.Range((day - 1) * 10, day * 20);
 
         // Update thought bubble with the new order
-        List<Sprite> ingredient_Sprites = new List<Sprite>(preferred_ingredients.Select(x => x.Sprite));
-        thoughtBubble.newOrder(ingredient_Sprites, required_score);
+        ThoughtBubble.newOrder(preferred_ingredients, required_score);
     }
 
     public IEnumerator checkOrder(List<Ingredient> used_ingredients, int base_score)
     {
         // Update thought bubble visuals
-        yield return StartCoroutine(thoughtBubble.CheckOrder(used_ingredients, preferred_ingredients, base_score, visualizer));
+        yield return StartCoroutine(ThoughtBubble.CheckOrder(used_ingredients, base_score, visualizer));
+    }
+
+    public void TriggerMindControl(int count)
+    {
+        var randomIngredients = inventoryManager.CurrentDeck.OrderBy(x => Guid.NewGuid()).Take(count).ToList();
+        var preference = ThoughtBubble.OrderPreference;
+        int index = Random.Range(0, preference.Count);
+
+        if (count > preference.Count)
+            count = preference.Count;
+
+        for (int i = 0; i < count; i++)
+        {
+            ThoughtBubble.OrderPreferences[i].SetPreference(randomIngredients[i]);
+        }
     }
 }

@@ -15,6 +15,7 @@ public class InventoryManager : MonoBehaviour
 
     private List<Ingredient> remainingIngredients = new List<Ingredient>();
     private List<Ingredient> discardedIngredients = new List<Ingredient>();
+    public List<Ingredient> CurrentDeck { get => currentDeck; }
 
     private void Awake()
     {
@@ -25,7 +26,7 @@ public class InventoryManager : MonoBehaviour
     {
         currentDeck = CreateBaseDeck();
 
-        ShuffleIntoRemainingCards(currentDeck);
+        ShuffleIntoRemainingCards(CurrentDeck);
 
         SpawnNewIngredients();
 
@@ -56,14 +57,14 @@ public class InventoryManager : MonoBehaviour
 
     public void AddDeckIngredient(Ingredient new_ingredient)
     {
-        currentDeck.Add(new_ingredient);
+        CurrentDeck.Add(new_ingredient);
     }
 
     public void StartNewDay()
     {
         remainingIngredients.Clear();
         discardedIngredients.Clear();
-        ShuffleIntoRemainingCards(currentDeck);
+        ShuffleIntoRemainingCards(CurrentDeck);
     }
 
     public void SpawnNewIngredients()
@@ -118,11 +119,6 @@ public class InventoryManager : MonoBehaviour
     {
         Discard(ing.Ingredient);
         Destroy(ing.gameObject);
-    }
-
-    public List<Ingredient> GetCurrentDeck()
-    {
-        return currentDeck;
     }
 
     public void TriggerDraw(int count)

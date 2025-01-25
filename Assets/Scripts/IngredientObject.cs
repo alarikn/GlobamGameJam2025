@@ -98,6 +98,8 @@ public class Ingredient
                     return $"If all ingredients are different <b>land</b>.\n" + GetScoreString();
                 case SpecialMove.Draw:
                     return $"<b>Trash {Score}</b> random ingredients and <b>take {Score}</b> ingredients";
+                case SpecialMove.MindControl:
+                    return $"<b>Change {Score}</b> random customer <b>preferences</b>";
             }
         }
 
