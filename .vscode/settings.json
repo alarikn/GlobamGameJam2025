@@ -1,60 +1,82 @@
 {
+    // Cross-platform version control artifacts
     "files.exclude": {
-        "**/.DS_Store": true,
+        // Version control systems
         "**/.git": true,
-        "**/.vs": true,
         "**/.gitmodules": true,
+        "**/.gitignore": true,
+        "**/.gitattributes": true,
+        
+        // IDE/Editor artifacts (cross-platform)
+        "**/.vs": true,
         "**/.vsconfig": true,
+        "**/.vscode": false, // Keep VSCode folder visible
+        "**/*.userprefs": true,
+        "**/*.user": true,
+        "**/*.suo": true,
+
+        // Build system artifacts
+        "**/{b,B}uild/": true,
+        "**/{o,O}bj/": true,
+        "**/{t,T}emp/": true,
         "**/*.booproj": true,
         "**/*.pidb": true,
-        "**/*.suo": true,
-        "**/*.user": true,
-        "**/*.userprefs": true,
         "**/*.unityproj": true,
+
+        // Runtime artifacts
+        "**/{l,L}ogs/": true,
         "**/*.dll": true,
         "**/*.exe": true,
+        "**/*.pdb": true,
+        "**/*.ilk": true,
+
+        // Package/project management
+        "**/node_modules/": true,
+        "**/bin/": true,
+        "**/obj/": true,
+
+        // Documentation & binaries
         "**/*.pdf": true,
-        "**/*.mid": true,
-        "**/*.midi": true,
-        "**/*.wav": true,
-        "**/*.gif": true,
-        "**/*.ico": true,
-        "**/*.jpg": true,
-        "**/*.jpeg": true,
-        "**/*.png": true,
-        "**/*.psd": true,
-        "**/*.tga": true,
-        "**/*.tif": true,
-        "**/*.tiff": true,
-        "**/*.3ds": true,
-        "**/*.3DS": true,
-        "**/*.fbx": true,
-        "**/*.FBX": true,
-        "**/*.lxo": true,
-        "**/*.LXO": true,
-        "**/*.ma": true,
-        "**/*.MA": true,
-        "**/*.obj": true,
-        "**/*.OBJ": true,
-        "**/*.asset": true,
-        "**/*.cubemap": true,
-        "**/*.flare": true,
-        "**/*.mat": true,
-        "**/*.meta": true,
-        "**/*.prefab": true,
-        "**/*.unity": true,
-        "build/": true,
-        "Build/": true,
-        "Library/": true,
-        "library/": true,
-        "obj/": true,
-        "Obj/": true,
-        "Logs/": true,
-        "logs/": true,
-        "ProjectSettings/": true,
-        "UserSettings/": true,
-        "temp/": true,
-        "Temp/": true
+        "**/*.snupkg": true,
+        "**/*.nupkg": true,
+
+        // Media assets (images/audio/video)
+        "**/*.@(gif|ico|jpeg|jpg|png|psd|tiff?|tga)": true,
+        "**/*.@(wav|mp3|ogg|flac|midi?)": true,
+
+        // 3D assets and scene files
+        "**/*.@(fbx|obj|ma|blend|3ds|lxo)": true,
+        "**/*.@(FBX|OBJ|MA|BLEND|3DS|LXO)": true,
+
+        // Unity-specific artifacts
+        "**/{p,P}roject{S,s}ettings/": true,
+        "**/{u,U}ser{S,s}ettings/": true,
+        "**/{l,L}ibrary/": true,
+        "**/*.@(asset|cubemap|flare|mat|meta|prefab|unity)": true,
+
+        // OS-specific artifacts
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/desktop.ini": true,
+
+        // Development environment artifacts
+        "**/__pycache__/": true,
+        "**/*.py[cod]": true,
+        "**/.mypy_cache/": true,
+        "**/.pytest_cache/": true
     },
-    "dotnet.defaultSolution": "GlobamGameJam2025.sln"
+
+    // Solution configuration
+    "dotnet.defaultSolution": "GlobamGameJam2025.sln",
+    
+    // Environment-specific settings
+    "[xml]": {
+        "editor.tabSize": 2
+    },
+    "[json]": {
+        "editor.tabSize": 2
+    },
+    "[cs]": {
+        "editor.formatOnSave": true
+    }
 }
