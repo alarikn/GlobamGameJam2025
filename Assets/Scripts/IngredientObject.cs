@@ -45,10 +45,17 @@ public class Ingredient
 
     public void EvaluatePoints(List<Ingredient> ingredients, out int add, out int multi)
     {
-        add = 0;
+        add = Score;
         multi = 0;
-
         int count = 0;
+
+        switch (SpecialMove)
+        {
+            case SpecialMove.Draw:
+                return;
+            default:
+                break;
+        }
 
         switch (powerType)
         {

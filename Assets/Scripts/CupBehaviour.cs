@@ -9,7 +9,6 @@ public class CupBehavior : MonoBehaviour
     [SerializeField] private Collider trigger;
     [SerializeField] private TMP_Text scoringT;
     [SerializeField] private InventoryManager inventoryManager;
-
     [SerializeField] private Animator cupAnimator;
 
     [SerializeField] private Customer current_customer;
