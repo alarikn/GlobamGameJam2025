@@ -156,7 +156,8 @@ public enum SpecialMove
     None = 0,
     Variety,
     Draw,
-    MindControl
+    MindControl,
+
 }
 
 public enum IngredientType
