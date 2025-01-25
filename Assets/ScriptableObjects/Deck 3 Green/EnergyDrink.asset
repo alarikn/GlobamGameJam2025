@@ -15,7 +15,7 @@ MonoBehaviour:
   ingredient:
     prefab: {fileID: 0}
     sprite: {fileID: 0}
-    ingredientName: EnergyDrink
+    ingredientName: Energy Drink
     ingredientType: 1
     ingredientLand: 1
     funnyDescription: 500 cigarettes!
