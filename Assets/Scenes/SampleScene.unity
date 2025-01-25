@@ -6228,6 +6228,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1506687939974554197, guid: 796ad9cfe4d70cd40b05cb2adbde1106, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 1598599440965016494, guid: 796ad9cfe4d70cd40b05cb2adbde1106, type: 3}
       propertyPath: customer
       value: 
@@ -6240,9 +6244,17 @@ PrefabInstance:
       propertyPath: dayEndScreen
       value: 
       objectReference: {fileID: 1524039261}
-    - target: {fileID: 2883077794423269505, guid: 796ad9cfe4d70cd40b05cb2adbde1106, type: 3}
+    - target: {fileID: 2585642480959900864, guid: 796ad9cfe4d70cd40b05cb2adbde1106, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.734
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3149129748679916204, guid: 796ad9cfe4d70cd40b05cb2adbde1106, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5422689531172927105, guid: 796ad9cfe4d70cd40b05cb2adbde1106, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.4
       objectReference: {fileID: 0}
     - target: {fileID: 5969673541537280598, guid: 796ad9cfe4d70cd40b05cb2adbde1106, type: 3}
       propertyPath: m_Name
@@ -6288,6 +6300,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7693093344001456240, guid: 796ad9cfe4d70cd40b05cb2adbde1106, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6305,6 +6321,10 @@ PrefabInstance:
       propertyPath: cupBehavior
       value: 
       objectReference: {fileID: 62071828}
+    - target: {fileID: 466883947239179002, guid: 6f673fbafca1e7744b70e7f1101c9d38, type: 3}
+      propertyPath: storeScript
+      value: 
+      objectReference: {fileID: 1106627786}
     - target: {fileID: 4820259148572934451, guid: 6f673fbafca1e7744b70e7f1101c9d38, type: 3}
       propertyPath: m_Pivot.x
       value: 0

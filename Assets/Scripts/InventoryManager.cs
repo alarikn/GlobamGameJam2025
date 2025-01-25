@@ -8,7 +8,6 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private IngredientManager ingredientManager;
     [SerializeField] private InventorySpawn spawner;
     [SerializeField] private StoreScript storeScript;
-    [SerializeField] private DayEndScreenScript dayEndScreen;
     [SerializeField] private Customer customer;
 
     [SerializeField] private List<Ingredient> currentDeck = new List<Ingredient>();
@@ -30,7 +29,7 @@ public class InventoryManager : MonoBehaviour
 
         SpawnNewIngredients();
 
-        dayEndScreen.OnDayEnd += StartNewDay;
+        storeScript.OnStoreClose += StartNewDay;
 
         customer.newOrder(1); // Called here, since it needs the base deck
     }

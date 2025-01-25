@@ -16,6 +16,7 @@ MonoBehaviour:
     prefab: {fileID: 7872539831346592006, guid: d564b1c661276314f9c1791c40a07684, type: 3}
     sprite: {fileID: 21300000, guid: 846979f3fb4877444b4bfba563879bd2, type: 3}
     ingredientName: Iced Tea
+    combination_name: Iced
     ingredientType: 1
     ingredientLand: 2
     funnyDescription: Arizona

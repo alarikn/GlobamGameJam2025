@@ -16,6 +16,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     sprite: {fileID: 0}
     ingredientName: Soy Milk
+    combination_name: Soy
     ingredientType: 2
     ingredientLand: 1
     funnyDescription: He must be Spannish.
@@ -25,3 +26,5 @@ MonoBehaviour:
     landTarget: 0
     score: 2
     specialMove: 0
+    addsColor: 0
+    colorToAdd: {r: 0, g: 0, b: 0, a: 0}

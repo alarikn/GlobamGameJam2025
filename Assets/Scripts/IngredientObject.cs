@@ -20,6 +20,7 @@ public class Ingredient
 
     [Header("Description")]
     [SerializeField] private string ingredientName;
+    [SerializeField] private string combination_name;
     [SerializeField] private IngredientType ingredientType;
     [SerializeField] private IngredientLand ingredientLand;
     [SerializeField] private string funnyDescription;
@@ -38,6 +39,7 @@ public class Ingredient
 
     public GameObject Prefab { get => prefab; }
     public string IngredientName { get => String.IsNullOrEmpty(ingredientName) ? "Default" : ingredientName; }
+    public string CombinationName { get => String.IsNullOrEmpty(combination_name) ? "Default" : combination_name; }
     public IngredientType IngredientType { get => ingredientType; }
     public IngredientLand IngredientLand { get => ingredientLand; }
     public string FunnyDescription { get => funnyDescription; }

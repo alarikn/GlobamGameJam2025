@@ -16,6 +16,7 @@ MonoBehaviour:
     prefab: {fileID: 7872539831346592006, guid: dfa4d300446266b459223ff0c098e215, type: 3}
     sprite: {fileID: 0}
     ingredientName: Liquorice
+    combination_name: Liquorice
     ingredientType: 0
     ingredientLand: 2
     funnyDescription: People not from Finland loves these.

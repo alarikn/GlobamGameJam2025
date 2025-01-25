@@ -16,6 +16,7 @@ MonoBehaviour:
     prefab: {fileID: 7872539831346592006, guid: 0403344f13f22e74ea6c027f108674fc, type: 3}
     sprite: {fileID: 21300000, guid: 67f9f3293d300c84c8f04a1bfea5bfc5, type: 3}
     ingredientName: Cabbage
+    combination_name: Cabbage
     ingredientType: 3
     ingredientLand: 1
     funnyDescription: 1 tbsp soysauce, 2 tsb Shaoxing wine and 1 tbsp of water.

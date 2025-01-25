@@ -16,6 +16,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     sprite: {fileID: 0}
     ingredientName: Oolong Tea
+    combination_name: Oolong
     ingredientType: 1
     ingredientLand: 1
     funnyDescription: "\u70CF\u9F8D\u8336, w\u016Bl\xF3ngch\xE1"
@@ -25,3 +26,5 @@ MonoBehaviour:
     landTarget: 0
     score: 3
     specialMove: 0
+    addsColor: 0
+    colorToAdd: {r: 0, g: 0, b: 0, a: 0}

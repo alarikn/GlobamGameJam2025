@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class DayEndScreenScript : MonoBehaviour
 {
-    [SerializeField] private CupBehavior cupBehavior;
-    public Action OnDayEnd;
     private CanvasGroup canvasGroup;
     private float fade_speed = 0.5f;
     [SerializeField] private TextMeshProUGUI day_text;
     private bool new_day = false;
     private bool fade_in = false;
+    [SerializeField] private StoreScript storeScript;
 
     void Start()
     {
@@ -47,13 +46,13 @@ public class DayEndScreenScript : MonoBehaviour
         day_text.text = "Day " + day;
         new_day = true;
         fade_in = true;
+        gameObject.SetActive(true);
     }
 
     private void StartNewDay()
     {
         new_day = false;
-        cupBehavior.NewCustomer(true);
+        storeScript.OpenStore();
         gameObject.SetActive(false);
-        OnDayEnd?.Invoke();
     }
 }

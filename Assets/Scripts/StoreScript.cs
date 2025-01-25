@@ -9,8 +9,8 @@ public class StoreScript : MonoBehaviour
     [SerializeField] private InventoryManager inventoryManager;
     [SerializeField] private List<StoreOption> options = new();
     [SerializeField] private GameObject parent;
-    [SerializeField] private DayEndScreenScript dayEndScreenScript;
     [SerializeField] private CupBehavior cupBehavior;
+    public Action OnStoreClose;
 
     public void OpenStore()
     {
@@ -43,7 +43,7 @@ public class StoreScript : MonoBehaviour
     {
         parent.SetActive(false);
 
-        dayEndScreenScript.gameObject.SetActive(true);
-        dayEndScreenScript.EndDay(cupBehavior.day);
+        cupBehavior.NewCustomer(true);
+        OnStoreClose?.Invoke();
     }
 }

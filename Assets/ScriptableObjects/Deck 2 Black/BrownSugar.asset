@@ -16,6 +16,7 @@ MonoBehaviour:
     prefab: {fileID: 7872539831346592006, guid: 5d7d684d1832a0141a4347817de4a09f, type: 3}
     sprite: {fileID: 21300000, guid: e2075bdaa0379b14097fbbafb3eb5949, type: 3}
     ingredientName: Brown Sugar
+    combination_name: Brown Sugar
     ingredientType: 3
     ingredientLand: 2
     funnyDescription: Help! My sugar has gone bad!
@@ -25,3 +26,5 @@ MonoBehaviour:
     landTarget: 0
     score: 2
     specialMove: 0
+    addsColor: 0
+    colorToAdd: {r: 0, g: 0, b: 0, a: 0}

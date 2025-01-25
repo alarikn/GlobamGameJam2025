@@ -16,6 +16,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     sprite: {fileID: 0}
     ingredientName: Cucumber
+    combination_name: Cucumber
     ingredientType: 3
     ingredientLand: 1
     funnyDescription: Hold this next to your cat, they get scared.

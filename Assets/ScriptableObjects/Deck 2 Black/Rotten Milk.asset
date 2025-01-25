@@ -16,6 +16,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     sprite: {fileID: 0}
     ingredientName: Rotten Milk
+    combination_name: Rotten
     ingredientType: 0
     ingredientLand: 2
     funnyDescription: Pungent lovely lovely scent. Tasty!
