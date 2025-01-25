@@ -55,6 +55,7 @@ public class ThoughtBubble : MonoBehaviour
 
     public IEnumerator CheckOrder(List<Ingredient> used_ingredients, List<Ingredient> preferred_ingredients, float base_score, CustomerVisualizer customerVisualizer)
     {
+        score_text.text = base_score.ToString();
         score_text.gameObject.SetActive(true);
         float multiplied_score = base_score;
 
