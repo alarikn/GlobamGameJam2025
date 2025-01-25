@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -7,6 +8,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private IngredientManager ingredientManager;
     [SerializeField] private InventorySpawn spawner;
     [SerializeField] private StoreScript storeScript;
+    [SerializeField] private DayEndScreenScript dayEndScreen;
 
     [SerializeField] private List<Ingredient> currentDeck = new List<Ingredient>();
     [SerializeField] private int spawnCount = 4;
@@ -27,11 +29,13 @@ public class InventoryManager : MonoBehaviour
         ShuffleIntoRemainingCards(currentDeck);
 
         SpawnNewIngredients();
+
+        dayEndScreen.OnDayEnd += StartNewDay;
     }
 
     private void ShuffleIntoRemainingCards(List<Ingredient> ingredients)
     {
-        remainingIngredients = ingredients.OrderBy(x => Random.value).ToList();
+        remainingIngredients.AddRange(ingredients.OrderBy(x => Guid.NewGuid()));
     }
 
     public List<Ingredient> CreateBaseDeck()
@@ -40,7 +44,7 @@ public class InventoryManager : MonoBehaviour
 
         foreach (var ingredient in ingredientManager.BaseDeck.Ingredients.Select(x => x.Ingredient))
         {
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 3; i++)
             {
                 ingredients.Add(ingredient);
             }
@@ -57,7 +61,13 @@ public class InventoryManager : MonoBehaviour
     public void StartNewDay()
     {
         remainingIngredients.Clear();
+        discardedIngredients.Clear();
         ShuffleIntoRemainingCards(currentDeck);
+
+        foreach (var ingredient in remainingIngredients)
+        {
+            Debug.Log("New deck ing: " + ingredient.IngredientName);
+        }
     }
 
     public void SpawnNewIngredients()

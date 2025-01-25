@@ -6551,6 +6551,10 @@ PrefabInstance:
       propertyPath: storeScript
       value: 
       objectReference: {fileID: 1106627786}
+    - target: {fileID: 1598599440965016494, guid: 796ad9cfe4d70cd40b05cb2adbde1106, type: 3}
+      propertyPath: dayEndScreen
+      value: 
+      objectReference: {fileID: 1524039261}
     - target: {fileID: 5969673541537280598, guid: 796ad9cfe4d70cd40b05cb2adbde1106, type: 3}
       propertyPath: m_Name
       value: Inventory

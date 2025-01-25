@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using UnityEngine;
 
@@ -29,6 +30,11 @@ public class IngredientManager : ScriptableObject
             {
                 LandColors.Add(deck.Land, deck.Color);
             }
+        }
+
+        foreach (var asss in GetAllNonBaseIngredients())
+        {
+            UnityEngine.Debug.Log(asss.IngredientName);
         }
     }
 
