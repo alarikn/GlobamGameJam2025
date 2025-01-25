@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 [CreateAssetMenu(fileName = "Ingredient", menuName = "Ingredients/Ingredient")]
 public class IngredientObject : ScriptableObject
 {
     [SerializeField] Ingredient ingredient = new();
-
     public Ingredient Ingredient { get => ingredient; set => ingredient = value; }
 }
 
@@ -34,7 +34,7 @@ public class Ingredient
     [SerializeField] private SpecialMove specialMove;
 
     public GameObject Prefab { get => prefab; }
-    public string IngredientName { get => ingredientName; }
+    public string IngredientName { get => String.IsNullOrEmpty(ingredientName) ? "Default" : ingredientName; }
     public IngredientType IngredientType { get => ingredientType; }
     public IngredientLand IngredientLand { get => ingredientLand; }
     public string FunnyDescription { get => funnyDescription; }
@@ -71,6 +71,37 @@ public class Ingredient
                 multi = value;
                 break;
         }
+    }
+
+    public string GetDescription()
+    {
+        string s = string.Empty;
+
+        s = "For each ";
+
+        switch (powerType)
+        {
+            case PowerType.Ingredient:
+                s += IngredientTarget.ToString();
+                break;
+            case PowerType.Land:
+                s += LandTarget.ToString();
+                break;
+        }
+
+        s += " ingredient ";
+
+        switch (countType)
+        {
+            case CountType.Add:
+                s += $"add {score} score";
+                break;
+            case CountType.Multi:
+                s += $"add {score} score multiplier";
+                break;
+        }
+
+        return s;
     }
 }
 

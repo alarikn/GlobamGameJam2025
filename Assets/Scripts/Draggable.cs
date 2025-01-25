@@ -1,8 +1,13 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Draggable : MonoBehaviour
 {
     [SerializeField] private Rigidbody rb;
+    [SerializeField] private UnityEvent OnHover;
+    [SerializeField] private UnityEvent OnHoverExit;
+
+
     private bool grabbed;
     private Vector3 ogPos;
 
@@ -20,14 +25,15 @@ public class Draggable : MonoBehaviour
     {
         Ungrab();
     }
+
     private void OnMouseEnter()
     {
-        //Hover
+        OnHover?.Invoke();
     }
+
     private void OnMouseExit()
     {
-        //Hover exit
-        //Ungrab();
+        OnHoverExit?.Invoke();
     }
 
     public void Grab()
@@ -37,6 +43,7 @@ public class Draggable : MonoBehaviour
         grabbed = true;
 
     }
+
     public void Ungrab()
     {
         rb.isKinematic = false;

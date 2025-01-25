@@ -25,7 +25,7 @@ public class InventorySpawn : MonoBehaviour
             var ingredient = ingredients[i];
             var prefab = ingredient.Prefab ? ingredient.Prefab : defaultPrefab;
             var obj = GameObject.Instantiate(prefab, spawnPositions[i].position, Quaternion.identity);
-            obj.GetComponent<IngredientBehavior>().Ingredient = ingredient;
+            obj.GetComponent<IngredientBehavior>().SetIngredient(ingredient);
             yield return new WaitForSeconds(0.5f);
         }
         routine = null;

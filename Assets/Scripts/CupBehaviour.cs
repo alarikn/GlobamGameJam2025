@@ -14,10 +14,13 @@ public class CupBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("trigger enter");
+        Debug.Log("Trigger enter: " + other.gameObject.name);
 
-        if (other.gameObject.TryGetComponent(out IngredientBehavior ingredientBehavior))
+        if (other.transform.root.gameObject.TryGetComponent(out IngredientBehavior ingredientBehavior))
         {
+            if (ingredientBehavior.Ingredient == null)
+                return;
+
             addedIngredients.Add(ingredientBehavior.Ingredient);
             ingredientBehavior.gameObject.SetActive(false);
 
