@@ -19,3 +19,9 @@ MonoBehaviour:
     ingredientType: 0
     ingredientLand: 0
     funnyDescription: 
+    powerType: 1
+    countType: 1
+    ingredientTarget: 0
+    landTarget: 0
+    score: 1
+    specialMove: 0

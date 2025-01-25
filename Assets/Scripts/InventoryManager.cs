@@ -25,13 +25,10 @@ public class InventoryManager : MonoBehaviour
             var last = remainingIngredients[remainingIngredients.Count - 1];
             spawnedItems.Add(last);
             remainingIngredients.RemoveAt(remainingIngredients.Count - 1);
-
         }
 
         spawner.SpawnIngredients(spawnedItems);
     }
-
-
 
     public List<Ingredient> CreateBaseDeck()
     {
