@@ -22,7 +22,9 @@ public class CupBehavior : MonoBehaviour
                 return;
 
             addedIngredients.Add(ingredientBehavior.Ingredient);
-            ingredientBehavior.gameObject.SetActive(false);
+            inventoryManager.Discard(ingredientBehavior.Ingredient);
+            Destroy(ingredientBehavior.gameObject);
+            //ingredientBehavior.gameObject.SetActive(false);
 
             if (addedIngredients.Count > 3)
             {
@@ -39,6 +41,8 @@ public class CupBehavior : MonoBehaviour
 
     public IEnumerator CheckScoreRoutine()
     {
+        inventoryManager.DiscardOnTable();
+
         var scoring = (add: 0, multi: 1);
         foreach (var ing in addedIngredients)
         {
@@ -50,11 +54,12 @@ public class CupBehavior : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
         }
 
-        scoringT.text = $"{scoring.add} x {scoring.multi} = {scoring.add * scoring.multi}";
+        var score = scoring.add * scoring.multi;
+        scoringT.text = $"{scoring.add} x {scoring.multi} = {score}";
 
         yield return new WaitForSeconds(0.5f);
 
-        current_customer.checkOrder(addedIngredients, scoring.add * scoring.multi);
+        current_customer.checkOrder(addedIngredients, score);
 
         yield return new WaitForSeconds(1.5f);
         current_customer.Visualizer.RemoveCustomerVisuals();
