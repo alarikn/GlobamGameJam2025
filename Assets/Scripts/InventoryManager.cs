@@ -44,4 +44,9 @@ public class InventoryManager : MonoBehaviour
 
         return ingredients;
     }
+
+    public void addIngredient(Ingredient new_ingredient)
+    {
+        currentDeck.Add(new_ingredient);
+    }
 }

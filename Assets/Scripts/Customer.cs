@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Customer : MonoBehaviour
 {
-    public List<IngredientObject> possible_ingredients = new List<IngredientObject>();
+    [SerializeField] private IngredientManager ingredientManager;
     public ThoughtBubble thoughtBubble;
 
     public int preferred_ingredient_count = 4;
@@ -19,18 +19,23 @@ public class Customer : MonoBehaviour
 
     public void newOrder()
     {
-        // Create a local list of the Ingredients
-        List<Ingredient> possible_ingredient_local = new List<Ingredient>(possible_ingredients.Select(x => x.Ingredient));
+        // Create a list of the possible Ingredients
+        List<Ingredient> possible_ingredients = new List<Ingredient>();
+        // for (int i = 0; i < ingredientManager.Decks.Count; i++)
+        // {
+        //     possible_ingredients.AddRange(ingredientManager.Decks[i].Ingredients.Select(x => x.Ingredient));
+        // }
+        possible_ingredients.AddRange(ingredientManager.BaseDeck.Ingredients.Select(x => x.Ingredient));
 
-        // Randomize preferred Ingredients
+        // Randomly select preferred Ingredients
         for (int i = 0; i < preferred_ingredient_count; i++)
         {
-            int index = Random.Range(0, possible_ingredient_local.Count);
-            preferred_ingredients.Add(possible_ingredient_local[index]);
-            possible_ingredient_local.RemoveAt(index);
+            int index = Random.Range(0, possible_ingredients.Count);
+            preferred_ingredients.Add(possible_ingredients[index]);
+            possible_ingredients.RemoveAt(index);
         }
 
-        // Randomize a required score
+        // Get a random required score
         required_score = Random.Range(0, 100); // CURRENLTY GETS A RANDOM required_score BETWEEN 0 AND 100
 
         // Update thought bubble with the new order
