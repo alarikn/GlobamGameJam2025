@@ -12,7 +12,7 @@ public class CupBehavior : MonoBehaviour
     [SerializeField] private Animator cupAnimator;
 
     [SerializeField] private Customer current_customer;
-    [SerializeField] private TextMeshProUGUI ingredient_Text;
+    [SerializeField] private DrinkNameGenerator drinkNameGenerator;
 
     public int customers_in_a_day = 2;
     public int day = 1;
@@ -39,7 +39,7 @@ public class CupBehavior : MonoBehaviour
             var ing = ingredientBehavior.Ingredient;
 
             addedIngredients.Add(ing);
-            DrinkName();
+            drinkNameGenerator.addedIngredient(ing);
             inventoryManager.Discard(ing);
             Destroy(ingredientBehavior.gameObject);
             //ingredientBehavior.gameObject.SetActive(false);
@@ -120,7 +120,7 @@ public class CupBehavior : MonoBehaviour
         yield return StartCoroutine(current_customer.checkOrder(addedIngredients, score));
 
         yield return new WaitForSeconds(1.0f);
-        ingredient_Text.text = "";
+        drinkNameGenerator.clearWords();
         cupAnimator.Play("ServeDrink", 0, 0);
         yield return new WaitForSeconds(0.5f);
         current_customer.Visualizer.RemoveCustomerVisuals();
@@ -157,20 +157,5 @@ public class CupBehavior : MonoBehaviour
         trigger.enabled = true;
         cupAnimator.Play("Idle", 0, 0);
         liquidBehaviour.ResetLiquid();
-    }
-
-    private void DrinkName()
-    {
-        ingredient_Text.text = "";
-        for (int i = 0; i < addedIngredients.Count; i++)
-        {
-            if (i != 0)
-            {
-                ingredient_Text.text += " ";
-            }
-            ingredient_Text.text += addedIngredients[i].CombinationName;
-        }
-
-        ingredient_Text.text += " tea";
     }
 }
