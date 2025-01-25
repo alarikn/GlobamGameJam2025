@@ -52,6 +52,11 @@ public class InventoryManager : MonoBehaviour
 
         for (int i = 0; i < spawnCount; i++)
         {
+            if (remainingIngredients.Count == 0)
+            {
+                Debug.Log("Deck empty");
+                return;
+            }
             var last = remainingIngredients[remainingIngredients.Count - 1];
             spawnedItems.Add(last);
             remainingIngredients.RemoveAt(remainingIngredients.Count - 1);
