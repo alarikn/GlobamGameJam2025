@@ -30,7 +30,7 @@ public class InventoryManager : MonoBehaviour
 
         SpawnNewIngredients();
 
-        storeScript.OnStoreClose += StartNewDay;
+        //storeScript.OnStoreClose += OnStoreClose;
 
         customer.newOrder(1); // Called here, since it needs the base deck
     }
@@ -60,7 +60,7 @@ public class InventoryManager : MonoBehaviour
         CurrentDeck.Add(new_ingredient);
     }
 
-    public void StartNewDay()
+    public void OnStoreClose()
     {
         remainingIngredients.Clear();
         discardedIngredients.Clear();
@@ -69,6 +69,13 @@ public class InventoryManager : MonoBehaviour
 
     public void SpawnNewIngredients()
     {
+        var remainingShitInScene = GameObject.FindObjectsByType(typeof(IngredientBehavior), FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+
+        foreach (var sc in remainingShitInScene.Select(x => (IngredientBehavior)x))
+        {
+            Destroy(sc.gameObject);
+        }
+
         SpawnNewIngredients(spawnCount);
     }
 
@@ -78,14 +85,26 @@ public class InventoryManager : MonoBehaviour
 
         for (int i = 0; i < count; i++)
         {
-            if (remainingIngredients.Count == 0)
+            if (remainingIngredients.Count <= 0)
             {
-                ShuffleIntoRemainingCards(discardedIngredients);
+                if (discardedIngredients.Count == 0)
+                {
+                    Debug.Log("Discarded deck shuffle " + discardedIngredients.Count());
+                    ShuffleIntoRemainingCards(discardedIngredients);
+                }
+                else
+                {
+                    Debug.Log("Current deck shuffle " + currentDeck.Count());
+                    ShuffleIntoRemainingCards(currentDeck);
+                }
                 discardedIngredients.Clear();
             }
-            var last = remainingIngredients[remainingIngredients.Count - 1];
+            var last = remainingIngredients.LastOrDefault();
             spawnedItems.Add(last);
-            remainingIngredients.RemoveAt(remainingIngredients.Count - 1);
+            if (remainingIngredients.Count == 1)
+                remainingIngredients.Clear();
+            else
+                remainingIngredients.RemoveAt(remainingIngredients.Count - 1);
         }
 
         if (draw)

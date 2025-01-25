@@ -28,11 +28,12 @@ public class CupBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Trigger enter: " + other.gameObject.name);
-
         if (other.transform.root.gameObject.TryGetComponent(out IngredientBehavior ingredientBehavior))
         {
             if (ingredientBehavior.Ingredient == null)
+                return;
+
+            if (addedIngredients.Count >= 4)
                 return;
 
             var ing = ingredientBehavior.Ingredient;
@@ -57,10 +58,9 @@ public class CupBehavior : MonoBehaviour
             }
             cupAnimator.Play("AddIngredient", 0, 0);
 
-            if (addedIngredients.Count > 3)
+            if (last)
             {
                 CheckScore();
-                return;
             }
 
         }
@@ -74,18 +74,25 @@ public class CupBehavior : MonoBehaviour
 
     public void CheckSpecial(Ingredient ing, bool last)
     {
+        switch (ing.SpecialMove)
+        {
+            case SpecialMove.MindControl:
+                current_customer.TriggerMindControl(ing.Score);
+                break;
+            default:
+                break;
+        }
+
         if (!last)
+        {
             switch (ing.SpecialMove)
             {
                 case SpecialMove.Draw:
                     inventoryManager.TriggerDraw(ing.Score);
                     break;
-                case SpecialMove.MindControl:
-                    current_customer.TriggerMindControl(ing.Score);
-                    break;
-                default:
-                    return;
             }
+        }
+
     }
 
     public IEnumerator CheckScoreRoutine()
@@ -146,8 +153,8 @@ public class CupBehavior : MonoBehaviour
         addedIngredients.Clear();
         current_customer.ThoughtBubble.HideMultipliedScoreText();
         current_customer.newOrder(day);
-        trigger.enabled = true;
         inventoryManager.SpawnNewIngredients();
+        trigger.enabled = true;
         cupAnimator.Play("Idle", 0, 0);
         liquidBehaviour.ResetLiquid();
     }

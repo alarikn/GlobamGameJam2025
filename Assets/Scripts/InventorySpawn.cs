@@ -21,10 +21,13 @@ public class InventorySpawn : MonoBehaviour
 
     public void SpawnIngredients(List<Ingredient> ingredients, Transform spawn = null)
     {
-        if (routine == null)
+        if (routine != null)
         {
-            var routine = StartCoroutine(SpawnIngredientsRoutine(ingredients, spawn));
+            StopCoroutine(routine);
+            routine = null;
         }
+
+        routine = StartCoroutine(SpawnIngredientsRoutine(ingredients, spawn));
     }
 
     public IEnumerator SpawnIngredientsRoutine(List<Ingredient> ingredients, Transform spawn = null)
@@ -38,14 +41,13 @@ public class InventorySpawn : MonoBehaviour
             if (spawn == null)
                 currentSpawn = spawnPositions[i];
 
-            Debug.Log(currentSpawn.gameObject.name + $" {i}");
-
             var obj = GameObject.Instantiate(prefab, currentSpawn.position, Quaternion.identity);
             var ing = obj.GetComponent<IngredientBehavior>();
             ing.SetIngredient(ingredient);
             Spawned.Add(ing);
             yield return new WaitForSeconds(spawnDelay);
         }
+
         routine = null;
     }
 }

@@ -42,8 +42,8 @@ public class StoreScript : MonoBehaviour
     private void CloseStore()
     {
         parent.SetActive(false);
-
-        cupBehavior.NewCustomer(true);
+        inventoryManager.OnStoreClose();
         OnStoreClose?.Invoke();
+        cupBehavior.NewCustomer(true);
     }
 }

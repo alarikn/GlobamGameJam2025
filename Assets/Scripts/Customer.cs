@@ -56,7 +56,8 @@ public class Customer : MonoBehaviour
 
     public void TriggerMindControl(int count)
     {
-        var randomIngredients = inventoryManager.CurrentDeck.OrderBy(x => Guid.NewGuid()).Take(count).ToList();
+        Debug.Log("Mind Control");
+        var randomIngredients = inventoryManager.CurrentDeck.OrderBy(x => Guid.NewGuid()).ToList();
         var preference = ThoughtBubble.OrderPreference;
         int index = Random.Range(0, preference.Count);
 
@@ -65,7 +66,20 @@ public class Customer : MonoBehaviour
 
         for (int i = 0; i < count; i++)
         {
-            ThoughtBubble.OrderPreferences[i].SetPreference(randomIngredients[i]);
+            var rand = randomIngredients[i];
+            var ing = ThoughtBubble.OrderPreferences[i].Ingredient;
+
+            var next = 0;
+
+            while (rand.IngredientName == ing.IngredientName || next >= randomIngredients.Count)
+            {
+                rand = randomIngredients[next];
+                Debug.Log("Rand2: " + rand.IngredientName);
+                next++;
+            }
+            Debug.Log("Rand2: " + rand.IngredientName);
+
+            ThoughtBubble.OrderPreferences[i].SetPreference(rand);
         }
     }
 }

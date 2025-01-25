@@ -7667,6 +7667,18 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3496895443135786769, guid: c71196d812a55d94a954cac688056fae, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3496895443135786769, guid: c71196d812a55d94a954cac688056fae, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1280
+      objectReference: {fileID: 0}
+    - target: {fileID: 3496895443135786769, guid: c71196d812a55d94a954cac688056fae, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 720
+      objectReference: {fileID: 0}
     - target: {fileID: 3543302959881719652, guid: c71196d812a55d94a954cac688056fae, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.164
