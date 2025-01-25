@@ -59,10 +59,8 @@ public class Ingredient
                 count = ingredients.Where(x => x.IngredientLand == LandTarget).Count();
                 break;
         }
-        Debug.Log("Count: " + count);
 
         var value = count * score;
-        Debug.Log("value: " + count);
 
         switch (countType)
         {
