@@ -18,7 +18,7 @@ MonoBehaviour:
     ingredientName: Oolong Tea
     ingredientType: 1
     ingredientLand: 1
-    funnyDescription: 
+    funnyDescription: "\u70CF\u9F8D\u8336, w\u016Bl\xF3ngch\xE1"
     powerType: 0
     countType: 0
     ingredientTarget: 0

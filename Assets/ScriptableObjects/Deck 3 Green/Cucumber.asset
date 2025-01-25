@@ -18,7 +18,7 @@ MonoBehaviour:
     ingredientName: Cucumber
     ingredientType: 3
     ingredientLand: 1
-    funnyDescription: 
+    funnyDescription: Hold this next to your cat, they get scared.
     powerType: 0
     countType: 0
     ingredientTarget: 0

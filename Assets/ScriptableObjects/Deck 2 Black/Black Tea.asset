@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: Black Tea
   m_EditorClassIdentifier: 
   ingredient:
-    prefab: {fileID: 0}
+    prefab: {fileID: 7872539831346592006, guid: 6ec8b5fc5c394104aa316b420e91bec2, type: 3}
     sprite: {fileID: 0}
     ingredientName: Black Tea
     ingredientType: 1
     ingredientLand: 2
-    funnyDescription: 
+    funnyDescription: One cup a day keeps the doctor away.
     powerType: 0
     countType: 0
     ingredientTarget: 0
     landTarget: 0
-    score: 0
+    score: 1
     specialMove: 0

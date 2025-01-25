@@ -18,7 +18,7 @@ MonoBehaviour:
     ingredientName: EnergyDrink
     ingredientType: 1
     ingredientLand: 1
-    funnyDescription: 
+    funnyDescription: 500 cigarettes!
     powerType: 0
     countType: 0
     ingredientTarget: 0

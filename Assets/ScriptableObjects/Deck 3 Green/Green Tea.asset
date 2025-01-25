@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Green Tea
   m_EditorClassIdentifier: 
   ingredient:
-    prefab: {fileID: 0}
+    prefab: {fileID: 7872539831346592006, guid: fd09160863693b04ba57ec29b987ef2f, type: 3}
     sprite: {fileID: 0}
     ingredientName: Green Tea
     ingredientType: 3
     ingredientLand: 1
-    funnyDescription: 
+    funnyDescription: Purifies any toxins, tasty with milk and honey!
     powerType: 0
     countType: 0
     ingredientTarget: 0

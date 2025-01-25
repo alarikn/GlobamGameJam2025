@@ -18,7 +18,7 @@ MonoBehaviour:
     ingredientName: Brown Sugar
     ingredientType: 3
     ingredientLand: 2
-    funnyDescription: 
+    funnyDescription: Help! My sugar has gone bad!
     powerType: 0
     countType: 0
     ingredientTarget: 0
