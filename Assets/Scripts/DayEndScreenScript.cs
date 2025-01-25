@@ -51,5 +51,6 @@ public class DayEndScreenScript : MonoBehaviour
     {
         new_day = false;
         cupBehavior.NewCustomer(true);
+        gameObject.SetActive(false);
     }
 }

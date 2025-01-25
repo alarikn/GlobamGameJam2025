@@ -14,10 +14,10 @@ public class CupBehavior : MonoBehaviour
 
     [SerializeField] private Customer current_customer;
 
-    [SerializeField] private DayEndScreenScript dayEndScreenScript;
     public int customers_in_a_day = 2;
-    private int day = 1;
+    public int day = 1;
     private int customer_number = 1;
+    [SerializeField] StoreScript storeScript;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -79,9 +79,8 @@ public class CupBehavior : MonoBehaviour
         if (customer_number >= customers_in_a_day)
         {
             current_customer.thoughtBubble.gameObject.SetActive(false);
+            storeScript.OpenStore();
             day++;
-            dayEndScreenScript.gameObject.SetActive(true);
-            dayEndScreenScript.EndDay(day);
         }
         else
         {
@@ -93,7 +92,6 @@ public class CupBehavior : MonoBehaviour
     {
         if (new_day)
         {
-            dayEndScreenScript.gameObject.SetActive(false);
             current_customer.thoughtBubble.gameObject.SetActive(true);
             customer_number = 1;
         }

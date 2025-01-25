@@ -4594,9 +4594,17 @@ PrefabInstance:
       value: -164.3109
       objectReference: {fileID: 0}
     - target: {fileID: 8060262753755718373, guid: 624476ab6a580e642897387220d58a3f, type: 3}
+      propertyPath: cupBehavior
+      value: 
+      objectReference: {fileID: 62071828}
+    - target: {fileID: 8060262753755718373, guid: 624476ab6a580e642897387220d58a3f, type: 3}
       propertyPath: inventoryManager
       value: 
       objectReference: {fileID: 1682459549}
+    - target: {fileID: 8060262753755718373, guid: 624476ab6a580e642897387220d58a3f, type: 3}
+      propertyPath: dayEndScreenScript
+      value: 
+      objectReference: {fileID: 1524039261}
     - target: {fileID: 8830500456981596506, guid: 624476ab6a580e642897387220d58a3f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -6306,6 +6314,10 @@ PrefabInstance:
       propertyPath: scoringT
       value: 
       objectReference: {fileID: 1037716142}
+    - target: {fileID: 1182713081324456607, guid: c71196d812a55d94a954cac688056fae, type: 3}
+      propertyPath: storeScript
+      value: 
+      objectReference: {fileID: 1106627786}
     - target: {fileID: 1182713081324456607, guid: c71196d812a55d94a954cac688056fae, type: 3}
       propertyPath: current_customer
       value: 

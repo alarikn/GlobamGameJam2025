@@ -27,8 +27,6 @@ public class InventoryManager : MonoBehaviour
         ShuffleIntoRemainingCards(currentDeck);
 
         SpawnNewIngredients();
-
-        storeScript.OpenStore();
     }
 
     private void ShuffleIntoRemainingCards(List<Ingredient> ingredients)
