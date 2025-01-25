@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Deck 3 Green
   m_EditorClassIdentifier: 
   ingredients: []
+  land: 0
+  color: {r: 0.45036024, g: 0.6415094, b: 0.40245637, a: 1}

@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Deck 2 Black
   m_EditorClassIdentifier: 
   ingredients: []
+  land: 0
+  color: {r: 0.31132078, g: 0.2935882, b: 0.26873446, a: 1}

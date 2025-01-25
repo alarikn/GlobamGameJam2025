@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -10,6 +9,11 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private List<Ingredient> currentDeck = new List<Ingredient>();
 
     private List<Ingredient> remainingIngredients = new List<Ingredient>();
+
+    private void Awake()
+    {
+        ingredientManager.Init();
+    }
 
     public void Start()
     {
