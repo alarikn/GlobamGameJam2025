@@ -13,8 +13,10 @@ GameObject:
   - component: {fileID: 5649318406447052526}
   - component: {fileID: 8198048654460098893}
   - component: {fileID: -3166817040772421950}
+  - component: {fileID: 1693717026567055014}
+  - component: {fileID: -3740550653110575427}
   m_Layer: 0
-  m_Name: TestPrefab
+  m_Name: Draggable Ingredient
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -136,3 +138,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1693717026567055014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6404005550696083924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: befc071e09d1bcd428c3eb5da01ad149, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: -3166817040772421950}
+--- !u!114 &-3740550653110575427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6404005550696083924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57e59a239e82882489fb44cd957bb841, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
