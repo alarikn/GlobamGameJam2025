@@ -7,15 +7,20 @@ public class CustomerVisualizer : MonoBehaviour
     [SerializeField] private Animator customerAnimator;
     [SerializeField] private Animator customerMover;
 
+    [SerializeField] private Renderer customerRenderer;
+
+    [SerializeField] private Material[] customerMaterials;
+
     public void SpawnCustomerVisuals()
     {
+        RandomizeVisuals();
         customerVisuals.SetActive(true);
-        StartCoroutine(CustomerIdleBehaviour());
+        StartCoroutine(nameof(CustomerIdleBehaviour));
     }
 
     public void RemoveCustomerVisuals()
     {
-        StopCoroutine(CustomerIdleBehaviour());
+        StopCoroutine(nameof(CustomerIdleBehaviour));
         StartCoroutine(CustomerDespawner());
     }
 
@@ -46,6 +51,12 @@ public class CustomerVisualizer : MonoBehaviour
             case 1: customerAnimator.SetTrigger("Smile"); break;
         }
 
-        StartCoroutine(CustomerIdleBehaviour());
+        StartCoroutine(nameof(CustomerIdleBehaviour));
+    }
+
+    private void RandomizeVisuals()
+    {
+        Material selectedMaterial = customerMaterials[Random.Range(0, customerMaterials.Length)];
+        customerRenderer.material = selectedMaterial;
     }
 }
