@@ -32,6 +32,13 @@ public class IngredientManager : ScriptableObject
         }
     }
 
+    public List<Ingredient> GetAllNonBaseIngredients()
+    {
+        return decks.SelectMany(x => x.Ingredients)
+            .Where(x => !BaseDeck.Ingredients.Any(baseIng => x == baseIng))
+            .Select(x => x.Ingredient)
+            .ToList();
+    }
 
 }
 

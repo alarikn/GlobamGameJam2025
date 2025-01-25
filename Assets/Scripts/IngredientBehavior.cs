@@ -6,24 +6,14 @@ public class IngredientBehavior : MonoBehaviour
 {
     private Ingredient ingredient;
 
-    [SerializeField] private TMP_Text nameT;
-    [SerializeField] private TMP_Text descriptionT;
-    [SerializeField] private TMP_Text typeT;
-    [SerializeField] private Image colorImage;
+    [SerializeField] private IngredientUI ingredientUI;
 
     public Ingredient Ingredient { get => ingredient; private set => ingredient = value; }
 
     public void SetIngredient(Ingredient ingredient)
     {
         Ingredient = ingredient;
-
-        nameT.text = Ingredient.IngredientName;
-        descriptionT.text = Ingredient.GetDescription();
-
-        typeT.text = ingredient.IngredientType.ToString();
-
-        colorImage.sprite = IngredientManager.TypeSprites[ingredient.IngredientType];
-        colorImage.color = IngredientManager.LandColors[ingredient.IngredientLand];
+        ingredientUI.SetUI(Ingredient);
     }
 
 }

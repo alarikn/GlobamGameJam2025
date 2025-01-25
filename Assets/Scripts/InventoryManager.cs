@@ -6,6 +6,8 @@ public class InventoryManager : MonoBehaviour
 {
     [SerializeField] private IngredientManager ingredientManager;
     [SerializeField] private InventorySpawn spawner;
+    [SerializeField] private StoreScript storeScript;
+
     [SerializeField] private List<Ingredient> currentDeck = new List<Ingredient>();
     [SerializeField] private int spawnCount = 4;
 
@@ -25,6 +27,8 @@ public class InventoryManager : MonoBehaviour
         ShuffleIntoRemainingCards(currentDeck);
 
         SpawnNewIngredients();
+
+        storeScript.OpenStore();
     }
 
     private void ShuffleIntoRemainingCards(List<Ingredient> ingredients)
@@ -47,9 +51,15 @@ public class InventoryManager : MonoBehaviour
         return ingredients;
     }
 
-    public void AddIngredient(Ingredient new_ingredient)
+    public void AddDeckIngredient(Ingredient new_ingredient)
     {
         currentDeck.Add(new_ingredient);
+    }
+
+    public void StartNewDay()
+    {
+        remainingIngredients.Clear();
+        ShuffleIntoRemainingCards(currentDeck);
     }
 
     public void SpawnNewIngredients()

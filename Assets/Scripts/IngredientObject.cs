@@ -77,7 +77,7 @@ public class Ingredient
     {
         string s = string.Empty;
 
-        s = "For each ";
+        s = "For each <b>";
 
         switch (powerType)
         {
@@ -89,15 +89,15 @@ public class Ingredient
                 break;
         }
 
-        s += " ingredient ";
+        s += "</b> ingredient ";
 
         switch (countType)
         {
             case CountType.Add:
-                s += $"add {score} score";
+                s += $"add <b>{score}</b> score";
                 break;
             case CountType.Multi:
-                s += $"add {score} score multiplier";
+                s += $"add <b>{score}</b> score multiplier";
                 break;
         }
 

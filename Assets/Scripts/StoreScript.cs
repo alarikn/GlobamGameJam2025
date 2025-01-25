@@ -1,75 +1,43 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class StoreScript : MonoBehaviour
 {
     [SerializeField] private IngredientManager ingredientManager;
     [SerializeField] private InventoryManager inventoryManager;
-
+    [SerializeField] private List<StoreOption> options = new();
     [SerializeField] private GameObject parent;
-    private Ingredient option_1_Ingredient;
-    private Ingredient option_2_Ingredient;
-    private Ingredient option_3_Ingredient;
-    [SerializeField] private Button option_1_button;
-    [SerializeField] private Button option_2_button;
-    [SerializeField] private Button option_3_button;
 
-    public void openStore()
+    public void OpenStore()
     {
-        newOptions();
-
+        NewOptions();
         parent.SetActive(true);
     }
 
-    private void newOptions()
+    private void NewOptions()
     {
-        List<Ingredient> possible_ingredients = new List<Ingredient>();
-        // for (int i = 0; i < ingredientManager.Decks.Count; i++)
-        // {
-        //     possible_ingredients.AddRange(ingredientManager.Decks[i].Ingredients.Select(x => x.Ingredient));
-        // }
-        possible_ingredients.AddRange(ingredientManager.BaseDeck.Ingredients.Select(x => x.Ingredient));
+        var ingredients = ingredientManager.GetAllNonBaseIngredients();
 
-        int index = Random.Range(0, possible_ingredients.Count);
-        option_1_Ingredient = possible_ingredients[index];
-        possible_ingredients.RemoveAt(index);
-        option_1_button.transform.GetChild(0).GetComponent<Image>().sprite = option_1_Ingredient.Sprite;
 
-        index = Random.Range(0, possible_ingredients.Count);
-        option_2_Ingredient = possible_ingredients[index];
-        possible_ingredients.RemoveAt(index);
-        option_2_button.transform.GetChild(0).GetComponent<Image>().sprite = option_2_Ingredient.Sprite;
+        var randomIngredients = ingredients.OrderBy(x => Random.value).Take(3);
 
-        index = Random.Range(0, possible_ingredients.Count);
-        option_3_Ingredient = possible_ingredients[index];
-        possible_ingredients.RemoveAt(index);
-        option_3_button.transform.GetChild(0).GetComponent<Image>().sprite = option_3_Ingredient.Sprite;
+        for (int i = 0; i < randomIngredients.Count(); i++)
+        {
+            var ing = ingredients[i];
+            var option = options[i];
+            option.SetOption(ing);
+            option.OnSelect += Select;
+        }
     }
 
-    public void selectIngredient1()
+    public void Select(Ingredient ingredient)
     {
-        inventoryManager.AddIngredient(option_1_Ingredient);
-
-        closeStore();
+        inventoryManager.AddDeckIngredient(ingredient);
+        CloseStore();
     }
 
-    public void selectIngredient2()
-    {
-        inventoryManager.AddIngredient(option_2_Ingredient);
-
-        closeStore();
-    }
-
-    public void selectIngredient3()
-    {
-        inventoryManager.AddIngredient(option_3_Ingredient);
-
-        closeStore();
-    }
-
-    private void closeStore()
+    private void CloseStore()
     {
         parent.SetActive(false);
     }
