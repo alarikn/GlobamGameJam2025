@@ -28,14 +28,20 @@ public class CupBehavior : MonoBehaviour
             if (ingredientBehavior.Ingredient == null)
                 return;
 
-            addedIngredients.Add(ingredientBehavior.Ingredient);
-            inventoryManager.Discard(ingredientBehavior.Ingredient);
+            var ing = ingredientBehavior.Ingredient;
+
+            addedIngredients.Add(ing);
+            inventoryManager.Discard(ing);
             Destroy(ingredientBehavior.gameObject);
             //ingredientBehavior.gameObject.SetActive(false);
 
             if (addedIngredients.Count > 3)
             {
                 CheckScore();
+            }
+            else
+            {
+
             }
         }
     }

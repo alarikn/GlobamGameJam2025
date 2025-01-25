@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using Debug = UnityEngine.Debug;
 
 [CreateAssetMenu(fileName = "Ingredient", menuName = "Ingredients/Ingredient")]
 public class IngredientObject : ScriptableObject
@@ -73,35 +72,52 @@ public class Ingredient
         }
     }
 
-    public string GetDescription()
+    public string GetDescription(bool skipSpecial = false)
     {
-        string s = string.Empty;
+        if (!skipSpecial && specialMove != SpecialMove.None)
+        {
+            switch (specialMove)
+            {
+                case SpecialMove.Variety:
+                    return $"If all ingredients are different <b>land</b>.\n" + GetScoreString();
+                case SpecialMove.Draw:
+                    return $"<b>Trash {score}</b> random ingredients and <b>take {score}</b> ingredients";
+            }
+        }
 
-        s = "For each <b>";
+        string desc = string.Empty;
+
+        desc = "For each <b>";
 
         switch (powerType)
         {
             case PowerType.Ingredient:
-                s += IngredientTarget.ToString();
+                desc += IngredientTarget.ToString();
                 break;
             case PowerType.Land:
-                s += LandTarget.ToString();
+                desc += LandTarget.ToString();
                 break;
         }
 
-        s += "</b> ingredient ";
+        desc += "</b> ingredient ";
 
+        desc += GetScoreString();
+
+        return desc;
+    }
+
+    private string GetScoreString()
+    {
         switch (countType)
         {
             case CountType.Add:
-                s += $"add <b>{score}</b> score";
-                break;
+                return $"add <b>{score}</b> score";
             case CountType.Multi:
-                s += $"add <b>{score}</b> score multiplier";
-                break;
+                return $"add <b>{score}</b> score multiplier";
+            default:
+                return string.Empty;
         }
 
-        return s;
     }
 }
 
@@ -120,8 +136,8 @@ public enum CountType
 public enum SpecialMove
 {
     None = 0,
-    Variety, 
-
+    Variety,
+    Draw
 }
 
 public enum IngredientType
