@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: Deck 3 Green
   m_EditorClassIdentifier: 
   ingredients:
+  - {fileID: 11400000, guid: 52e6fcfeb296565498d5f8dd6ff55bfa, type: 2}
   - {fileID: 11400000, guid: 136924e6e6a80074a84d954de9284822, type: 2}
   - {fileID: 11400000, guid: b10e9456ff2a54849b531b8e0212a2e9, type: 2}
+  - {fileID: 11400000, guid: 626ec9f7721b7574892ececfd0d22532, type: 2}
   - {fileID: 11400000, guid: 5bce894ed67719548b271a2711f76b39, type: 2}
   - {fileID: 11400000, guid: 8112a1de42234244587559b214361ef4, type: 2}
   - {fileID: 11400000, guid: 884a738cfeee08a4c87a81c6d827e3f7, type: 2}
+  - {fileID: 11400000, guid: c27d59e651452e9479f222b2b3d561cb, type: 2}
   - {fileID: 11400000, guid: 909957e3f0987d14aaa7786e87abe12e, type: 2}
-  - {fileID: 11400000, guid: 52e6fcfeb296565498d5f8dd6ff55bfa, type: 2}
-  - {fileID: 11400000, guid: 626ec9f7721b7574892ececfd0d22532, type: 2}
   land: 1
   color: {r: 0.45036024, g: 0.6415094, b: 0.40245637, a: 1}

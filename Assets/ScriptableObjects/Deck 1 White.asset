@@ -13,13 +13,11 @@ MonoBehaviour:
   m_Name: Deck 1 White
   m_EditorClassIdentifier: 
   ingredients:
-  - {fileID: 0}
   - {fileID: 11400000, guid: 2ffede3fccd9c444d86aef020b6f369d, type: 2}
-  - {fileID: 11400000, guid: 1fa06c0fe947c964cb2204cd0ae167bd, type: 2}
   - {fileID: 11400000, guid: 5fc973521efd9344190220a3c366af95, type: 2}
-  - {fileID: 11400000, guid: 0289df82171acdf499290b40d364f017, type: 2}
   - {fileID: 11400000, guid: ac31e448e622be84d8ec4e3d966a1a82, type: 2}
-  - {fileID: 11400000, guid: 8dea15d00441fb9439b61b81301b11c8, type: 2}
+  - {fileID: 11400000, guid: 0289df82171acdf499290b40d364f017, type: 2}
   - {fileID: 11400000, guid: 40a232a9370745f49a1291b8a6ac48fd, type: 2}
+  - {fileID: 11400000, guid: 8dea15d00441fb9439b61b81301b11c8, type: 2}
   land: 0
   color: {r: 1, g: 0.9891252, b: 0.9481132, a: 1}
