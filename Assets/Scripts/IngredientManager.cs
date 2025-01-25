@@ -31,11 +31,6 @@ public class IngredientManager : ScriptableObject
                 LandColors.Add(deck.Land, deck.Color);
             }
         }
-
-        foreach (var asss in GetAllNonBaseIngredients())
-        {
-            UnityEngine.Debug.Log(asss.IngredientName);
-        }
     }
 
     public List<Ingredient> GetAllNonBaseIngredients()
