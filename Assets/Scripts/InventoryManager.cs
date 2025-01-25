@@ -10,6 +10,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private int spawnCount = 4;
 
     private List<Ingredient> remainingIngredients = new List<Ingredient>();
+    private List<Ingredient> discardedIngredients = new List<Ingredient>();
 
     private void Awake()
     {
@@ -21,9 +22,14 @@ public class InventoryManager : MonoBehaviour
         currentDeck = CreateBaseDeck();
         Debug.Log("Remaining: " + currentDeck.Count);
 
-        remainingIngredients = currentDeck.OrderBy(x => Random.value).ToList();
+        ShuffleIntoRemainingCards(currentDeck);
 
         SpawnNewIngredients();
+    }
+
+    private void ShuffleIntoRemainingCards(List<Ingredient> ingredients)
+    {
+        remainingIngredients = ingredients.OrderBy(x => Random.value).ToList();
     }
 
     public List<Ingredient> CreateBaseDeck()
@@ -55,7 +61,8 @@ public class InventoryManager : MonoBehaviour
             if (remainingIngredients.Count == 0)
             {
                 Debug.Log("Deck empty");
-                return;
+                ShuffleIntoRemainingCards(discardedIngredients);
+                discardedIngredients.Clear();
             }
             var last = remainingIngredients[remainingIngredients.Count - 1];
             spawnedItems.Add(last);
@@ -63,5 +70,23 @@ public class InventoryManager : MonoBehaviour
         }
 
         spawner.SpawnIngredients(spawnedItems);
+    }
+
+    public void Discard(Ingredient ingredient)
+    {
+        discardedIngredients.Add(ingredient);
+    }
+
+    public void DiscardOnTable()
+    {
+        foreach (var ing in spawner.Spawned)
+        {
+            if (ing == null)
+                continue;
+
+            Discard(ing.Ingredient);
+            Destroy(ing.gameObject);
+        }
+        spawner.Spawned.Clear();
     }
 }
