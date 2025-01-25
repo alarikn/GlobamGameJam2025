@@ -9,6 +9,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private InventorySpawn spawner;
     [SerializeField] private StoreScript storeScript;
     [SerializeField] private DayEndScreenScript dayEndScreen;
+    [SerializeField] private Customer customer;
 
     [SerializeField] private List<Ingredient> currentDeck = new List<Ingredient>();
     [SerializeField] private int spawnCount = 4;
@@ -30,6 +31,8 @@ public class InventoryManager : MonoBehaviour
         SpawnNewIngredients();
 
         dayEndScreen.OnDayEnd += StartNewDay;
+
+        customer.newOrder(1); // Called here, since it needs the base deck
     }
 
     private void ShuffleIntoRemainingCards(List<Ingredient> ingredients)
@@ -99,5 +102,10 @@ public class InventoryManager : MonoBehaviour
             Destroy(ing.gameObject);
         }
         spawner.Spawned.Clear();
+    }
+
+    public List<Ingredient> GetCurrentDeck()
+    {
+        return currentDeck;
     }
 }

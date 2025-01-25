@@ -108,7 +108,7 @@ public class CupBehavior : MonoBehaviour
 
         addedIngredients.Clear();
         current_customer.thoughtBubble.HideMultipliedScoreText();
-        current_customer.newOrder();
+        current_customer.newOrder(day);
         trigger.enabled = true;
         inventoryManager.SpawnNewIngredients();
         cupAnimator.Play("Idle", 0, 0);

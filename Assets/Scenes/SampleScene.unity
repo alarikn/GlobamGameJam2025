@@ -6552,6 +6552,10 @@ PrefabInstance:
       value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1598599440965016494, guid: 796ad9cfe4d70cd40b05cb2adbde1106, type: 3}
+      propertyPath: customer
+      value: 
+      objectReference: {fileID: 1208979475}
+    - target: {fileID: 1598599440965016494, guid: 796ad9cfe4d70cd40b05cb2adbde1106, type: 3}
       propertyPath: storeScript
       value: 
       objectReference: {fileID: 1106627786}
@@ -6897,6 +6901,10 @@ PrefabInstance:
       propertyPath: customerAnimator
       value: 
       objectReference: {fileID: 5339100481762223979}
+    - target: {fileID: 6170578836919489358, guid: f73ee8c2a3041e049969a274a6afa419, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1682459549}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
