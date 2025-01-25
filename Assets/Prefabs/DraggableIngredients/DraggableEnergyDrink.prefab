@@ -120,6 +120,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2273226688086266886, guid: f97ba853d1f8d324aafc436a310ced99, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.358
+      objectReference: {fileID: 0}
     - target: {fileID: 2698934018441161917, guid: f97ba853d1f8d324aafc436a310ced99, type: 3}
       propertyPath: m_Name
       value: Collider

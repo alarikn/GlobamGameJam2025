@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnergyDrink
   m_EditorClassIdentifier: 
   ingredient:
-    prefab: {fileID: 0}
+    prefab: {fileID: 7872539831346592006, guid: a44f5d1ee1b1f6349b8af2da19890ffc, type: 3}
     sprite: {fileID: 0}
     ingredientName: Energy Drink
     combination_name: Energy
