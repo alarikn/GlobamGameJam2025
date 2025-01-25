@@ -19,7 +19,6 @@ public class StoreScript : MonoBehaviour
     {
         var ingredients = ingredientManager.GetAllNonBaseIngredients();
 
-
         var randomIngredients = ingredients.OrderBy(x => Random.value).Take(3);
 
         for (int i = 0; i < randomIngredients.Count(); i++)
