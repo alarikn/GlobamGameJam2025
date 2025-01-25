@@ -14,6 +14,11 @@ public class CupBehavior : MonoBehaviour
 
     [SerializeField] private Customer current_customer;
 
+    [SerializeField] private DayEndScreenScript dayEndScreenScript;
+    public int customers_in_a_day = 2;
+    private int day = 1;
+    private int customer_number = 1;
+
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Trigger enter: " + other.gameObject.name);
@@ -71,16 +76,32 @@ public class CupBehavior : MonoBehaviour
         current_customer.Visualizer.RemoveCustomerVisuals();
         yield return new WaitForSeconds(0.5f);
 
+        if (customer_number >= customers_in_a_day)
+        {
+            day++;
+            dayEndScreenScript.EndDay(day);
+        }
+        else
+        {
+            NewCustomer(false);
+        }
+    }
+
+    public void NewCustomer(bool new_day)
+    {
+        if (new_day)
+        {
+            customer_number = 1;
+        }
+        else
+        {
+            customer_number++;
+        }
 
         addedIngredients.Clear();
         current_customer.newOrder();
         trigger.enabled = true;
         inventoryManager.SpawnNewIngredients();
         cupAnimator.Play("Idle", 0, 0);
-    }
-
-    public void newCustomer(Customer new_customer)
-    {
-        current_customer = new_customer;
     }
 }
