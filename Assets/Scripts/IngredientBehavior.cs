@@ -21,6 +21,8 @@ public class IngredientBehavior : MonoBehaviour
         descriptionT.text = Ingredient.GetDescription();
 
         typeT.text = ingredient.IngredientType.ToString();
+
+        colorImage.sprite = IngredientManager.TypeSprites[ingredient.IngredientType];
         colorImage.color = IngredientManager.LandColors[ingredient.IngredientLand];
     }
 
