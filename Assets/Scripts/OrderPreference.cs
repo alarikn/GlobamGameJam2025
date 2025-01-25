@@ -19,7 +19,6 @@ public class OrderPreference : MonoBehaviour
         preferenceImage.sprite = ing.Sprite;
     }
 
-
     public void SetSuccess(bool value)
     {
         if (value)

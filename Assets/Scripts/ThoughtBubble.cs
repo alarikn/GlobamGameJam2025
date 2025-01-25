@@ -65,7 +65,6 @@ public class ThoughtBubble : MonoBehaviour
 
             if (wasUsed)
             {
-                orderObj.SetSuccess(wasUsed);
                 // Multiply score
                 multiplied_score *= current_multiplier;
                 current_multiplier = 1f + ((current_multiplier - 1f) / 2f);
@@ -75,6 +74,7 @@ public class ThoughtBubble : MonoBehaviour
 
                 yield return new WaitForSeconds(0.5f);
             }
+            orderObj.SetSuccess(wasUsed);
         }
 
         score_text.transform.position = score_text_end_pos.transform.position;
