@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientUI: {fileID: 4480800416985767402}
-  storeImage: {fileID: 0}
+  storeImage: {fileID: 936235819239787368}
 --- !u!1 &9014091591339575290
 GameObject:
   m_ObjectHideFlags: 0
