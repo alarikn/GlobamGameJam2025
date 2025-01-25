@@ -16,7 +16,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     sprite: {fileID: 21300000, guid: c808375bee80cd8439528b2dc0d5f0ba, type: 3}
     ingredientName: 
-    ingredientType: 0
+    ingredientType: 1
     ingredientLand: 0
     funnyDescription: 
     powerType: 1
