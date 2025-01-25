@@ -78,6 +78,7 @@ public class CupBehavior : MonoBehaviour
 
         if (customer_number >= customers_in_a_day)
         {
+            current_customer.thoughtBubble.gameObject.SetActive(false);
             day++;
             dayEndScreenScript.gameObject.SetActive(true);
             dayEndScreenScript.EndDay(day);
@@ -93,6 +94,7 @@ public class CupBehavior : MonoBehaviour
         if (new_day)
         {
             dayEndScreenScript.gameObject.SetActive(false);
+            current_customer.thoughtBubble.gameObject.SetActive(true);
             customer_number = 1;
         }
         else
@@ -101,6 +103,7 @@ public class CupBehavior : MonoBehaviour
         }
 
         addedIngredients.Clear();
+        current_customer.thoughtBubble.HideMultipliedScoreText();
         current_customer.newOrder();
         trigger.enabled = true;
         inventoryManager.SpawnNewIngredients();
