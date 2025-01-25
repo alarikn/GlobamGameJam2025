@@ -190,9 +190,25 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 4fcccdc1565213d42a7531d538218066, type: 2}
+    - target: {fileID: 2041144813239449457, guid: f97ba853d1f8d324aafc436a310ced99, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2273226688086266886, guid: f97ba853d1f8d324aafc436a310ced99, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.113
+      objectReference: {fileID: 0}
     - target: {fileID: 2698934018441161917, guid: f97ba853d1f8d324aafc436a310ced99, type: 3}
       propertyPath: m_Name
       value: Collider
+      objectReference: {fileID: 0}
+    - target: {fileID: 3506045423455839263, guid: f97ba853d1f8d324aafc436a310ced99, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.65505
+      objectReference: {fileID: 0}
+    - target: {fileID: 3506045423455839263, guid: f97ba853d1f8d324aafc436a310ced99, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0775
       objectReference: {fileID: 0}
     - target: {fileID: 6404005550696083924, guid: f97ba853d1f8d324aafc436a310ced99, type: 3}
       propertyPath: m_Name

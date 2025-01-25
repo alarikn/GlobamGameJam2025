@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BrownSugar
   m_EditorClassIdentifier: 
   ingredient:
-    prefab: {fileID: 0}
+    prefab: {fileID: 7872539831346592006, guid: 5d7d684d1832a0141a4347817de4a09f, type: 3}
     sprite: {fileID: 0}
     ingredientName: Brown Sugar
     ingredientType: 3
