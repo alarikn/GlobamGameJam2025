@@ -20,5 +20,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c26adc7d5e6148c41afd61653e4a7790, type: 2}
   - {fileID: 11400000, guid: d9221e5d4b7cb3145bee7500ec6035b4, type: 2}
   - {fileID: 11400000, guid: 5cd5463c7bbd75e49b5ef52d30875643, type: 2}
+<<<<<<< Updated upstream
   land: 2
+=======
+  - {fileID: 11400000, guid: 2c855f0551a3b87408d0c80a41da32d4, type: 2}
+  land: 0
+>>>>>>> Stashed changes
   color: {r: 0.31132078, g: 0.2935882, b: 0.26873446, a: 1}
