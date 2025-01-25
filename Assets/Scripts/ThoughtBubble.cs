@@ -14,14 +14,7 @@ public class ThoughtBubble : MonoBehaviour
     private List<Image> instantated_images = new List<Image>();
     int required_score = 0;
 
-    public Sprite test_Sprite; // This is only for testing
-
-    public void Start()
-    {
-        newOrder(new Sprite[]{ test_Sprite, test_Sprite, test_Sprite ,test_Sprite }, 100); // This can be commented, used to show how it is used
-    }
-
-    public void newOrder(Sprite[] sprites, int score)
+    public void newOrder(List<Sprite> sprites, int score)
     {
         // Destroy all previous images
         for (int i = instantated_images.Count - 1; i >= 0; i--)
@@ -31,21 +24,22 @@ public class ThoughtBubble : MonoBehaviour
         instantated_images.Clear();
 
         // Create new images
-        for (int i = 0; i < sprites.Length; i++)
+        for (int i = 0; i < sprites.Count; i++)
         {
-            GameObject new_outline_image = Instantiate(image_prefab);
-            new_outline_image.GetComponent<Image>().sprite = sprites[i];
-            new_outline_image.transform.SetParent(image_panel.transform);
-            new_outline_image.GetComponent<RectTransform>().sizeDelta = new Vector2(50f, 50f);
-            new_outline_image.transform.localScale = new Vector3(1f, 1f, 1f);
-            new_outline_image.GetComponent<Image>().color = Color.black;
-            instantated_images.Add(new_outline_image.GetComponent<Image>());
-
             GameObject new_image = Instantiate(image_prefab);
             new_image.GetComponent<Image>().sprite = sprites[i];
-            new_image.transform.SetParent(new_outline_image.transform);
+            new_image.transform.parent = image_panel.transform;
+            new_image.transform.localScale = new Vector3(1f, 1f, 1f);
             new_image.GetComponent<RectTransform>().sizeDelta = new Vector2(50f, 50f);
-            new_image.transform.localScale = new Vector3(0.9f, 0.9f, 0.9f);
+
+            new_image.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(50f, 50f);
+            new_image.transform.GetChild(0).GetComponent<Image>().color = Color.black;
+
+            new_image.transform.GetChild(0).GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(50f, 50f);
+            new_image.transform.GetChild(0).GetChild(0).localScale = new Vector3(0.9f, 0.9f, 0.9f);
+            new_image.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = sprites[i];
+
+            instantated_images.Add(new_image.transform.GetChild(0).GetComponent<Image>());
         }
 
         // Update the score
@@ -54,9 +48,8 @@ public class ThoughtBubble : MonoBehaviour
         text.color = Color.black;
     }
 
-    public void checkOrder(int[] correct_image_indexes, int gotten_score)
+    public void checkOrder(List<int> correct_image_indexes, float gotten_score)
     {
-        // The "correct_image_indexes" can be changed
         // Change color for all the image outlines
         for (int i = 0; i < image_panel.childCount; i++)
         {
