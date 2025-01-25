@@ -23,6 +23,7 @@ public class Customer : MonoBehaviour
 
     public void newOrder()
     {
+        visualizer.SpawnCustomerVisuals();
         preferred_ingredients.Clear();
 
         // Create a list of the possible Ingredients

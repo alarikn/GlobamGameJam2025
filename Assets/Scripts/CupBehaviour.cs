@@ -56,7 +56,10 @@ public class CupBehavior : MonoBehaviour
 
         current_customer.checkOrder(addedIngredients, scoring.add * scoring.multi);
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
+        current_customer.Visualizer.RemoveCustomerVisuals();
+        yield return new WaitForSeconds(0.5f);
+
 
         addedIngredients.Clear();
         current_customer.newOrder();
