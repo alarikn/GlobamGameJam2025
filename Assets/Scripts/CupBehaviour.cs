@@ -10,7 +10,14 @@ public class CupBehavior : MonoBehaviour
     [SerializeField] private TMP_Text scoringT;
     [SerializeField] private InventoryManager inventoryManager;
 
+    [SerializeField] private Animator cupAnimator;
+
     [SerializeField] private Customer current_customer;
+
+    [SerializeField] private DayEndScreenScript dayEndScreenScript;
+    public int customers_in_a_day = 2;
+    private int day = 1;
+    private int customer_number = 1;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -22,7 +29,9 @@ public class CupBehavior : MonoBehaviour
                 return;
 
             addedIngredients.Add(ingredientBehavior.Ingredient);
-            ingredientBehavior.gameObject.SetActive(false);
+            inventoryManager.Discard(ingredientBehavior.Ingredient);
+            Destroy(ingredientBehavior.gameObject);
+            //ingredientBehavior.gameObject.SetActive(false);
 
             if (addedIngredients.Count > 3)
             {
@@ -39,6 +48,10 @@ public class CupBehavior : MonoBehaviour
 
     public IEnumerator CheckScoreRoutine()
     {
+        inventoryManager.DiscardOnTable();
+
+        cupAnimator.Play("CloseLid",0,0);
+
         var scoring = (add: 0, multi: 1);
         foreach (var ing in addedIngredients)
         {
@@ -50,25 +63,45 @@ public class CupBehavior : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
         }
 
-        scoringT.text = $"{scoring.add} x {scoring.multi} = {scoring.add * scoring.multi}";
+        var score = scoring.add * scoring.multi;
+        scoringT.text = $"{scoring.add} x {scoring.multi} = {score}";
 
         yield return new WaitForSeconds(0.5f);
 
-        current_customer.checkOrder(addedIngredients, scoring.add * scoring.multi);
+        yield return StartCoroutine(current_customer.checkOrder(addedIngredients, score));
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.0f);
+        cupAnimator.Play("ServeDrink", 0, 0);
+        yield return new WaitForSeconds(0.5f);
         current_customer.Visualizer.RemoveCustomerVisuals();
         yield return new WaitForSeconds(0.5f);
 
+        if (customer_number >= customers_in_a_day)
+        {
+            day++;
+            dayEndScreenScript.EndDay(day);
+        }
+        else
+        {
+            NewCustomer(false);
+        }
+    }
+
+    public void NewCustomer(bool new_day)
+    {
+        if (new_day)
+        {
+            customer_number = 1;
+        }
+        else
+        {
+            customer_number++;
+        }
 
         addedIngredients.Clear();
         current_customer.newOrder();
         trigger.enabled = true;
         inventoryManager.SpawnNewIngredients();
-    }
-
-    public void newCustomer(Customer new_customer)
-    {
-        current_customer = new_customer;
+        cupAnimator.Play("Idle", 0, 0);
     }
 }

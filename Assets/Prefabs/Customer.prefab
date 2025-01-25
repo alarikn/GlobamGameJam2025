@@ -47,7 +47,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2747394309017534921
 Transform:
   m_ObjectHideFlags: 0
@@ -1553,8 +1553,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98102e93aa2b31b40ada8582c2ce6d21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  customerVisuals: {fileID: 0}
-  customerAnimator: {fileID: 0}
+  customerVisuals: {fileID: 92675044207648362}
+  customerAnimator: {fileID: 6482909697382736491}
+  customerMover: {fileID: 2202742826038186587}
+  customerRenderer: {fileID: 6681418781504821323}
+  customerMaterials:
+  - {fileID: 2100000, guid: 915504d5138bfb140850107cd4ec8433, type: 2}
+  - {fileID: 2100000, guid: 1a083b11613d9b34fbd2324c9ba8be73, type: 2}
+  - {fileID: 2100000, guid: 63fc7f68bc1817245b53b8d364241073, type: 2}
+  - {fileID: 2100000, guid: 206436d49d516da4889c7d17e1ba93cc, type: 2}
 --- !u!95 &4572571010539137670
 Animator:
   serializedVersion: 7

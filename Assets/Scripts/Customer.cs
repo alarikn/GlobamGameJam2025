@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections;
 
 public class Customer : MonoBehaviour
 {
@@ -50,38 +51,9 @@ public class Customer : MonoBehaviour
         thoughtBubble.newOrder(ingredient_Sprites, required_score);
     }
 
-    public float checkOrder(List<Ingredient> used_ingredients, int base_score)
+    public IEnumerator checkOrder(List<Ingredient> used_ingredients, int base_score)
     {
-        float multiplied_score = base_score;
-        float[] ingredient_multipliers = new float[preferred_ingredients.Count];
-        for (int i = 0; i < ingredient_multipliers.Length; i++)
-        {
-            ingredient_multipliers[i] = 2f;
-        }
-        List<int> correct_ingredient_indexes = new List<int>();
-
-        // Multiply the score
-        foreach (Ingredient ingredient in used_ingredients)
-        {
-            for (int i = 0; i < preferred_ingredients.Count; i++)
-            {
-                if (ingredient == preferred_ingredients[i])
-                {
-                    multiplied_score *= ingredient_multipliers[i];
-                    ingredient_multipliers[i] = 1f + ((ingredient_multipliers[i] - 1f) / 2f);
-                    if (!correct_ingredient_indexes.Contains(i))
-                    {
-                        correct_ingredient_indexes.Add(i);
-                    }
-                }
-            }
-        }
-
         // Update thought bubble visuals
-        thoughtBubble.checkOrder(correct_ingredient_indexes, multiplied_score);
-
-        print("base score was " + base_score + " and multiplied score is " + multiplied_score);
-
-        return multiplied_score;
+        yield return StartCoroutine(thoughtBubble.CheckOrder(used_ingredients, preferred_ingredients, base_score, visualizer));
     }
 }

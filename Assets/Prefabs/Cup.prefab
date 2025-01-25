@@ -511,6 +511,9 @@ MonoBehaviour:
   addedIngredients: []
   trigger: {fileID: 8892191106385746539}
   scoringT: {fileID: 0}
+  inventoryManager: {fileID: 0}
+  cupAnimator: {fileID: 6344988088280135598}
+  current_customer: {fileID: 0}
 --- !u!54 &3292105136118209609
 Rigidbody:
   m_ObjectHideFlags: 0

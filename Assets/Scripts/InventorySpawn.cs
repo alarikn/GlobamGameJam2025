@@ -5,27 +5,31 @@ using UnityEngine;
 public class InventorySpawn : MonoBehaviour
 {
     [SerializeField] private GameObject defaultPrefab;
-    [SerializeField] private List<Transform> spawnPositions = new List<Transform>();
+    [SerializeField] private List<Transform> spawnPositions = new();
+    [SerializeField] private List<IngredientBehavior> spawned = new();
+
     Coroutine routine = null;
+
+    public List<IngredientBehavior> Spawned { get => spawned; }
 
     public void SpawnIngredients(List<Ingredient> ingredients)
     {
         if (routine == null)
         {
-            Debug.Log("Ing: " + ingredients.Count);
             var routine = StartCoroutine(SpawnIngredientsRoutine(ingredients));
         }
     }
 
     public IEnumerator SpawnIngredientsRoutine(List<Ingredient> ingredients)
     {
-        Debug.Log("Ie");
         for (int i = 0; i < ingredients.Count; i++)
         {
             var ingredient = ingredients[i];
             var prefab = ingredient.Prefab ? ingredient.Prefab : defaultPrefab;
             var obj = GameObject.Instantiate(prefab, spawnPositions[i].position, Quaternion.identity);
-            obj.GetComponent<IngredientBehavior>().SetIngredient(ingredient);
+            var ing = obj.GetComponent<IngredientBehavior>();
+            ing.SetIngredient(ingredient);
+            Spawned.Add(ing);
             yield return new WaitForSeconds(0.5f);
         }
         routine = null;
