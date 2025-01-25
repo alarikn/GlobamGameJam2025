@@ -20,8 +20,8 @@ MonoBehaviour:
     ingredientLand: 0
     funnyDescription: Owie go away!
     powerType: 0
-    countType: 0
+    countType: 1
     ingredientTarget: 0
     landTarget: 0
-    score: 0
+    score: 1
     specialMove: 0

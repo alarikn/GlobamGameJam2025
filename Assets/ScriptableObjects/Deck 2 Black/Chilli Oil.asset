@@ -20,8 +20,8 @@ MonoBehaviour:
     ingredientLand: 2
     funnyDescription: Lao Gan Ma
     powerType: 0
-    countType: 0
+    countType: 1
     ingredientTarget: 0
     landTarget: 0
-    score: 0
+    score: 3
     specialMove: 0

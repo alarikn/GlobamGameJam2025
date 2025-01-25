@@ -23,5 +23,5 @@ MonoBehaviour:
     countType: 0
     ingredientTarget: 0
     landTarget: 0
-    score: 0
+    score: 4
     specialMove: 0
