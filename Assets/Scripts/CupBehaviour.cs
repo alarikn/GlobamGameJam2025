@@ -79,6 +79,7 @@ public class CupBehavior : MonoBehaviour
         if (customer_number >= customers_in_a_day)
         {
             day++;
+            dayEndScreenScript.gameObject.SetActive(true);
             dayEndScreenScript.EndDay(day);
         }
         else
@@ -91,6 +92,7 @@ public class CupBehavior : MonoBehaviour
     {
         if (new_day)
         {
+            dayEndScreenScript.gameObject.SetActive(false);
             customer_number = 1;
         }
         else
