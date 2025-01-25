@@ -25,3 +25,5 @@ MonoBehaviour:
     landTarget: 0
     score: 3
     specialMove: 0
+    addsColor: 1
+    colorToAdd: {r: 1.0717735, g: 0.030849937, b: 0, a: 1}

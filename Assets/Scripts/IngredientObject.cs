@@ -32,6 +32,10 @@ public class Ingredient
     [SerializeField] private int score;
     [SerializeField] private SpecialMove specialMove;
 
+    [Header("Color")]
+    [SerializeField] private bool addsColor;
+    [SerializeField, ColorUsageAttribute(true, true)] private Color colorToAdd;
+
     public GameObject Prefab { get => prefab; }
     public string IngredientName { get => String.IsNullOrEmpty(ingredientName) ? "Default" : ingredientName; }
     public IngredientType IngredientType { get => ingredientType; }
@@ -42,6 +46,8 @@ public class Ingredient
     public IngredientLand LandTarget { get => landTarget; }
     public SpecialMove SpecialMove { get => specialMove; }
     public int Score { get => score; }
+    public bool AddsColor { get => addsColor; }
+    [ColorUsageAttribute(true, true)] public Color ColorToAdd { get => colorToAdd; }
 
     public void EvaluatePoints(List<Ingredient> ingredients, out int add, out int multi)
     {
