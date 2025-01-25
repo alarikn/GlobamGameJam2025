@@ -33,6 +33,7 @@ public class InventoryManager : MonoBehaviour
         //storeScript.OnStoreClose += OnStoreClose;
 
         customer.newOrder(1); // Called here, since it needs the base deck
+        AudioManager.Instance.PlaySoundEffect("SpawnIngredients");
     }
 
     private void ShuffleIntoRemainingCards(List<Ingredient> ingredients)

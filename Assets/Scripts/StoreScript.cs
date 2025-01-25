@@ -45,5 +45,6 @@ public class StoreScript : MonoBehaviour
         inventoryManager.OnStoreClose();
         OnStoreClose?.Invoke();
         cupBehavior.NewCustomer(true);
+        MusicManager.Instance.ShopMusic(false);
     }
 }

@@ -155,6 +155,7 @@ public class CupBehavior : MonoBehaviour
         current_customer.newOrder(day);
         inventoryManager.SpawnNewIngredients();
         trigger.enabled = true;
+        AudioManager.Instance.PlaySoundEffect("SpawnIngredients");
         cupAnimator.Play("Idle", 0, 0);
         liquidBehaviour.ResetLiquid();
     }

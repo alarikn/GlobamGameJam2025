@@ -47,6 +47,7 @@ public class DayEndScreenScript : MonoBehaviour
         new_day = true;
         fade_in = true;
         gameObject.SetActive(true);
+        MusicManager.Instance.ShopMusic(true);
     }
 
     private void StartNewDay()
