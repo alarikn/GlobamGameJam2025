@@ -8,12 +8,16 @@ public class Customer : MonoBehaviour
     [SerializeField] private IngredientManager ingredientManager;
     public ThoughtBubble thoughtBubble;
 
+    private CustomerVisualizer visualizer;
+    public CustomerVisualizer Visualizer { get { return visualizer; } }
+
     public int preferred_ingredient_count = 4;
     private List<Ingredient> preferred_ingredients = new List<Ingredient>();
     public int required_score = 0;
 
     public void Start()
     {
+        visualizer = GetComponent<CustomerVisualizer>();
         newOrder();
     }
 
