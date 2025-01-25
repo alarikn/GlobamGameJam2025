@@ -19,6 +19,8 @@ public class Customer : MonoBehaviour
 
     public void newOrder()
     {
+        preferred_ingredients.Clear();
+
         // Create a list of the possible Ingredients
         List<Ingredient> possible_ingredients = new List<Ingredient>();
         // for (int i = 0; i < ingredientManager.Decks.Count; i++)
@@ -72,6 +74,8 @@ public class Customer : MonoBehaviour
 
         // Update thought bubble visuals
         thoughtBubble.checkOrder(correct_ingredient_indexes, multiplied_score);
+
+        print("base score was " + base_score + " and multiplied score is " + multiplied_score);
 
         return multiplied_score;
     }

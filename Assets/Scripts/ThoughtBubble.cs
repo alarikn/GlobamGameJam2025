@@ -19,7 +19,7 @@ public class ThoughtBubble : MonoBehaviour
         // Destroy all previous images
         for (int i = instantated_images.Count - 1; i >= 0; i--)
         {
-            Destroy(instantated_images[i].gameObject);
+            Destroy(instantated_images[i].transform.parent.gameObject);
         }
         instantated_images.Clear();
 
@@ -28,7 +28,7 @@ public class ThoughtBubble : MonoBehaviour
         {
             GameObject new_image = Instantiate(image_prefab);
             new_image.GetComponent<Image>().sprite = sprites[i];
-            new_image.transform.parent = image_panel.transform;
+            new_image.transform.SetParent(image_panel.transform, false);
             new_image.transform.localScale = new Vector3(1f, 1f, 1f);
             new_image.GetComponent<RectTransform>().sizeDelta = new Vector2(50f, 50f);
 

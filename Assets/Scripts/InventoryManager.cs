@@ -18,16 +18,7 @@ public class InventoryManager : MonoBehaviour
 
         remainingIngredients = currentDeck.OrderBy(x => Random.value).ToList();
 
-        var spawnedItems = new List<Ingredient>();
-
-        for (int i = 0; i < 4; i++)
-        {
-            var last = remainingIngredients[remainingIngredients.Count - 1];
-            spawnedItems.Add(last);
-            remainingIngredients.RemoveAt(remainingIngredients.Count - 1);
-        }
-
-        spawner.SpawnIngredients(spawnedItems);
+        spawnNewIngredients();
     }
 
     public List<Ingredient> CreateBaseDeck()
@@ -48,5 +39,19 @@ public class InventoryManager : MonoBehaviour
     public void addIngredient(Ingredient new_ingredient)
     {
         currentDeck.Add(new_ingredient);
+    }
+
+    public void spawnNewIngredients()
+    {
+        var spawnedItems = new List<Ingredient>();
+
+        for (int i = 0; i < 4; i++)
+        {
+            var last = remainingIngredients[remainingIngredients.Count - 1];
+            spawnedItems.Add(last);
+            remainingIngredients.RemoveAt(remainingIngredients.Count - 1);
+        }
+
+        spawner.SpawnIngredients(spawnedItems);
     }
 }

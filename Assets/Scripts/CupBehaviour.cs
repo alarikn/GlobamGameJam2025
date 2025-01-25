@@ -8,6 +8,9 @@ public class CupBehavior : MonoBehaviour
     [SerializeField] private List<Ingredient> addedIngredients = new();
     [SerializeField] private Collider trigger;
     [SerializeField] private TMP_Text scoringT;
+    [SerializeField] private InventoryManager inventoryManager;
+
+    [SerializeField] private Customer current_customer;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -45,6 +48,21 @@ public class CupBehavior : MonoBehaviour
         }
 
         scoringT.text = $"{scoring.add} x {scoring.multi} = {scoring.add * scoring.multi}";
+
+        yield return new WaitForSeconds(0.5f);
+
+        current_customer.checkOrder(addedIngredients, scoring.add * scoring.multi);
+
+        yield return new WaitForSeconds(2f);
+
+        addedIngredients.Clear();
+        current_customer.newOrder();
+        trigger.enabled = true;
+        inventoryManager.spawnNewIngredients();
     }
 
+    public void newCustomer(Customer new_customer)
+    {
+        current_customer = new_customer;
+    }
 }
