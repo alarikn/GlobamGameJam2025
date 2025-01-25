@@ -33,8 +33,6 @@ public class Customer : MonoBehaviour
 
         int how_many_preferences = Mathf.Clamp(1 + (int)(day / how_many_days_for_more_preferences), 1, 4);
 
-        print("how_many_preferences: " + how_many_preferences);
-
         // Randomly select preferred Ingredients
         for (int i = 0; i < how_many_preferences; i++)
         {
@@ -44,7 +42,7 @@ public class Customer : MonoBehaviour
         }
 
         // Get a random required score
-        required_score = Random.Range(0, 100); // CURRENLTY GETS A RANDOM required_score BETWEEN 0 AND 100
+        required_score = Random.Range((day - 1) * 10, day * 20);
 
         // Update thought bubble with the new order
         List<Sprite> ingredient_Sprites = new List<Sprite>(preferred_ingredients.Select(x => x.Sprite));
