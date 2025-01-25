@@ -24,7 +24,6 @@ public class InventoryManager : MonoBehaviour
     public void Start()
     {
         currentDeck = CreateBaseDeck();
-        Debug.Log("Remaining: " + currentDeck.Count);
 
         ShuffleIntoRemainingCards(currentDeck);
 
@@ -63,11 +62,6 @@ public class InventoryManager : MonoBehaviour
         remainingIngredients.Clear();
         discardedIngredients.Clear();
         ShuffleIntoRemainingCards(currentDeck);
-
-        foreach (var ingredient in remainingIngredients)
-        {
-            Debug.Log("New deck ing: " + ingredient.IngredientName);
-        }
     }
 
     public void SpawnNewIngredients()
@@ -78,7 +72,6 @@ public class InventoryManager : MonoBehaviour
         {
             if (remainingIngredients.Count == 0)
             {
-                Debug.Log("Deck empty");
                 ShuffleIntoRemainingCards(discardedIngredients);
                 discardedIngredients.Clear();
             }

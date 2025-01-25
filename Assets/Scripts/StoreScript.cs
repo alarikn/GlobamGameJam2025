@@ -27,7 +27,6 @@ public class StoreScript : MonoBehaviour
         for (int i = 0; i < randomIngredients.Count(); i++)
         {
             var ing = randomIngredients[i];
-            Debug.Log("Random ing: " + ing.IngredientName);
             var option = options[i];
             option.SetOption(ing);
             option.OnSelect += Select;
