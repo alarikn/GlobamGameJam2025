@@ -16,7 +16,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     sprite: {fileID: 0}
     ingredientName: Alien Milk
-    combination_name: Alien
+    combination_name: Abducted
     ingredientType: 2
     ingredientLand: 1
     funnyDescription: Meep Morp. Zeep zap zap.

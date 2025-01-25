@@ -16,7 +16,7 @@ MonoBehaviour:
     prefab: {fileID: 7872539831346592006, guid: eaad57e667318fa46aed3554902ea063, type: 3}
     sprite: {fileID: 21300000, guid: c97bb014fc3de744792996312a017697, type: 3}
     ingredientName: Tapioca Boba
-    combination_name: Tapioca
+    combination_name: Bubble
     ingredientType: 0
     ingredientLand: 2
     funnyDescription: Standard boba, chewy sweet goodness.

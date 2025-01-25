@@ -16,7 +16,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     sprite: {fileID: 0}
     ingredientName: Jelly Boba
-    combination_name: Jelly Boba
+    combination_name: Gelatinous
     ingredientType: 0
     ingredientLand: 1
     funnyDescription: Fruity sweet goodness.

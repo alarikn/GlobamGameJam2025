@@ -16,7 +16,7 @@ MonoBehaviour:
     prefab: {fileID: 7872539831346592006, guid: a0b10ef5087889946a808913512dc230, type: 3}
     sprite: {fileID: 0}
     ingredientName: Bubble Gum
-    combination_name: Bubble Gum
+    combination_name: Gummy
     ingredientType: 0
     ingredientLand: 0
     funnyDescription: When the bubblegum pops, I want you to smile!

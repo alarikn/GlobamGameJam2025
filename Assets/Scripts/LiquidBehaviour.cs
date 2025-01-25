@@ -22,6 +22,10 @@ public class LiquidBehaviour : MonoBehaviour
 
     [ColorUsageAttribute(true, true), SerializeField] private Color DefaultColor;
 
+    [SerializeField] private ParticleSystem steamParticles;
+    [SerializeField] private ParticleSystem starParticles;
+    [SerializeField] private ParticleSystem bubbleParticles;
+
     private void Start()
     {
         ResetLiquid();
@@ -46,8 +50,9 @@ public class LiquidBehaviour : MonoBehaviour
         LiquidRenderer.material.SetColor("_FoamColor", DefaultColor * 2);
     }
 
-    public void AddItem(Color color)
+    public void AddItem(Color color, IngredientType ingredientType)
     {
+        PlayEffect(ingredientType);
         itemsAdded++;
         RiseLiquid();
 
@@ -81,8 +86,9 @@ public class LiquidBehaviour : MonoBehaviour
         }
     }
 
-    public void AddItem()
+    public void AddItem(IngredientType ingredientType)
     {
+        PlayEffect(ingredientType);
         itemsAdded++;
         RiseLiquid();
 
@@ -94,6 +100,17 @@ public class LiquidBehaviour : MonoBehaviour
         if (bottomColorAdded && topColorAdded)
         {
             bottomColor = topColor;
+        }
+    }
+
+    private void PlayEffect(IngredientType ingredientType)
+    {
+        switch (ingredientType)
+        {
+            case IngredientType.Tea: steamParticles.Play(); break;
+            case IngredientType.Bubble: bubbleParticles.Play(); break;
+            case IngredientType.Flavor: starParticles.Play(); break;
+            default: break;
         }
     }
 

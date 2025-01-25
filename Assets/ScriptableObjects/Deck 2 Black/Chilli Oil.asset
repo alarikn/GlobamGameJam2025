@@ -16,7 +16,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     sprite: {fileID: 0}
     ingredientName: Chilli Oil
-    combination_name: Chili
+    combination_name: Hot
     ingredientType: 3
     ingredientLand: 2
     funnyDescription: Lao Gan Ma

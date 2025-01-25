@@ -49,11 +49,11 @@ public class CupBehavior : MonoBehaviour
 
             if (ingredientBehavior.Ingredient.AddsColor)
             {
-                liquidBehaviour.AddItem(ingredientBehavior.Ingredient.ColorToAdd);
+                liquidBehaviour.AddItem(ingredientBehavior.Ingredient.ColorToAdd, ingredientBehavior.Ingredient.IngredientType);
             }
             else
             {
-                liquidBehaviour.AddItem();
+                liquidBehaviour.AddItem(ingredientBehavior.Ingredient.IngredientType);
             }
             cupAnimator.Play("AddIngredient", 0, 0);
 
