@@ -16,7 +16,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     sprite: {fileID: 0}
     ingredientName: Mini Boba
-    combination_name: Mini Boba
+    combination_name: Mini
     ingredientType: 0
     ingredientLand: 2
     funnyDescription: Boba but smol.

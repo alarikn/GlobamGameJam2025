@@ -16,7 +16,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     sprite: {fileID: 0}
     ingredientName: Maple Syrup
-    combination_name: Maple
+    combination_name: Sticky
     ingredientType: 3
     ingredientLand: 2
     funnyDescription: Have you ever had BeaverTails?

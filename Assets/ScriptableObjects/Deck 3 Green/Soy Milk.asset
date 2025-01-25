@@ -16,7 +16,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     sprite: {fileID: 0}
     ingredientName: Soy Milk
-    combination_name: Soy
+    combination_name: Sweaty
     ingredientType: 2
     ingredientLand: 1
     funnyDescription: He must be Spannish.

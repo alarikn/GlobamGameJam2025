@@ -16,7 +16,7 @@ MonoBehaviour:
     prefab: {fileID: 7872539831346592006, guid: eb703eda971d84f47bb36dd8691cb04b, type: 3}
     sprite: {fileID: 0}
     ingredientName: PainKiller
-    combination_name: Pain Killer
+    combination_name: Relaxing
     ingredientType: 0
     ingredientLand: 0
     funnyDescription: Owie go away!

@@ -16,7 +16,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     sprite: {fileID: 0}
     ingredientName: Crystal Boba
-    combination_name: Crystal
+    combination_name: Shiny
     ingredientType: 0
     ingredientLand: 0
     funnyDescription: Bouncy, low-calorie and very chewy!

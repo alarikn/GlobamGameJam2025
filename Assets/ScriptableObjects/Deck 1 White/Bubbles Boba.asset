@@ -16,7 +16,7 @@ MonoBehaviour:
     prefab: {fileID: 7872539831346592006, guid: 9ecd8ac923ad12d4f8004f8c83934fef, type: 3}
     sprite: {fileID: 0}
     ingredientName: Bubbles Boba
-    combination_name: Bubbles
+    combination_name: Soapy
     ingredientType: 0
     ingredientLand: 0
     funnyDescription: '"I''m just as tough and strong and mean as Buttercup and Blossom"'

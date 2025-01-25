@@ -16,7 +16,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
     sprite: {fileID: 0}
     ingredientName: Tidepods
-    combination_name: Tidepod
+    combination_name: Tasty
     ingredientType: 0
     ingredientLand: 0
     funnyDescription: These look real tasty!
