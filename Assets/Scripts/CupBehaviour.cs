@@ -16,7 +16,13 @@ public class CupBehavior : MonoBehaviour
     public int customers_in_a_day = 2;
     public int day = 1;
     private int customer_number = 1;
+    private LiquidBehaviour liquidBehaviour;
     [SerializeField] StoreScript storeScript;
+
+    private void Start()
+    {
+        liquidBehaviour = GetComponent<LiquidBehaviour>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -37,6 +43,16 @@ public class CupBehavior : MonoBehaviour
             var last = addedIngredients.Count > 3;
 
             CheckSpecial(ing, last);
+
+            if (ingredientBehavior.Ingredient.AddsColor)
+            {
+                liquidBehaviour.AddItem(ingredientBehavior.Ingredient.ColorToAdd);
+            }
+            else
+            {
+                liquidBehaviour.AddItem();
+            }
+            cupAnimator.Play("AddIngredient", 0, 0);
 
             if (addedIngredients.Count > 3)
             {
@@ -128,5 +144,6 @@ public class CupBehavior : MonoBehaviour
         trigger.enabled = true;
         inventoryManager.SpawnNewIngredients();
         cupAnimator.Play("Idle", 0, 0);
+        liquidBehaviour.ResetLiquid();
     }
 }

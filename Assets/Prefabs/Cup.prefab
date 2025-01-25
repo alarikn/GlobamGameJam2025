@@ -418,6 +418,7 @@ GameObject:
   - component: {fileID: 7403292230005737619}
   - component: {fileID: 1182713081324456607}
   - component: {fileID: 3292105136118209609}
+  - component: {fileID: 4509081045733132750}
   m_Layer: 2
   m_Name: Cup
   m_TagString: Untagged
@@ -514,6 +515,9 @@ MonoBehaviour:
   inventoryManager: {fileID: 0}
   cupAnimator: {fileID: 6344988088280135598}
   current_customer: {fileID: 0}
+  customers_in_a_day: 2
+  day: 1
+  storeScript: {fileID: 0}
 --- !u!54 &3292105136118209609
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -541,6 +545,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4509081045733132750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6651730561380120449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7530d9653f87dc346971fcdabe3bc487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LiquidRenderer: {fileID: 8591066496916869818}
+  slerpDuration: 0.3
+  DefaultColor: {r: 1, g: 0.325142, b: 0, a: 1}
 --- !u!1 &7417088809631843869
 GameObject:
   m_ObjectHideFlags: 0
@@ -730,7 +749,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2567043913874540795
 Transform:
   m_ObjectHideFlags: 0
