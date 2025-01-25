@@ -15,8 +15,8 @@ MonoBehaviour:
   ingredient:
     prefab: {fileID: 0}
     sprite: {fileID: 0}
-    ingredientName: 
-    ingredientType: 0
+    ingredientName: Soy Milk
+    ingredientType: 2
     ingredientLand: 0
     funnyDescription: 
     powerType: 0

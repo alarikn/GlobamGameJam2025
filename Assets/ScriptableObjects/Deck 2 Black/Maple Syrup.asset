@@ -15,9 +15,9 @@ MonoBehaviour:
   ingredient:
     prefab: {fileID: 0}
     sprite: {fileID: 0}
-    ingredientName: 
-    ingredientType: 0
-    ingredientLand: 0
+    ingredientName: Maple Syrup
+    ingredientType: 3
+    ingredientLand: 2
     funnyDescription: 
     powerType: 0
     countType: 0
