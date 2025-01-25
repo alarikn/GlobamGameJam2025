@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Deck Base
   m_EditorClassIdentifier: 
   ingredients:
-  - {fileID: 11400000, guid: 63f0b26a7b16a49469af00b1819e0213, type: 2}
-  - {fileID: 11400000, guid: 43be09bde04ea3c44844e3fc6ac26a15, type: 2}
-  - {fileID: 11400000, guid: 98f873e3ccd010c49a50e8423dfa6018, type: 2}
-  - {fileID: 11400000, guid: 32083f57680afa54dbd850947da4f88e, type: 2}
+  - {fileID: 11400000, guid: ac31e448e622be84d8ec4e3d966a1a82, type: 2}
+  - {fileID: 11400000, guid: 4ef08476e2c96474594d31d4b111a5f4, type: 2}
+  - {fileID: 11400000, guid: 5cd5463c7bbd75e49b5ef52d30875643, type: 2}
+  - {fileID: 11400000, guid: 8dea15d00441fb9439b61b81301b11c8, type: 2}
+  land: 0
+  color: {r: 1, g: 1, b: 1, a: 1}

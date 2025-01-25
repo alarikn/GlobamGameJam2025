@@ -120,6 +120,8 @@ public enum CountType
 public enum SpecialMove
 {
     None = 0,
+    Variety, 
+
 }
 
 public enum IngredientType
