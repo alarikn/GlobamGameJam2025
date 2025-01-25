@@ -10,6 +10,8 @@ public class CupBehavior : MonoBehaviour
     [SerializeField] private TMP_Text scoringT;
     [SerializeField] private InventoryManager inventoryManager;
 
+    [SerializeField] private Animator cupAnimator;
+
     [SerializeField] private Customer current_customer;
 
     private void OnTriggerEnter(Collider other)
@@ -43,6 +45,8 @@ public class CupBehavior : MonoBehaviour
     {
         inventoryManager.DiscardOnTable();
 
+        cupAnimator.Play("CloseLid",0,0);
+
         var scoring = (add: 0, multi: 1);
         foreach (var ing in addedIngredients)
         {
@@ -61,7 +65,9 @@ public class CupBehavior : MonoBehaviour
 
         yield return StartCoroutine(current_customer.checkOrder(addedIngredients, score));
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.0f);
+        cupAnimator.Play("ServeDrink", 0, 0);
+        yield return new WaitForSeconds(0.5f);
         current_customer.Visualizer.RemoveCustomerVisuals();
         yield return new WaitForSeconds(0.5f);
 
@@ -70,6 +76,7 @@ public class CupBehavior : MonoBehaviour
         current_customer.newOrder();
         trigger.enabled = true;
         inventoryManager.SpawnNewIngredients();
+        cupAnimator.Play("Idle", 0, 0);
     }
 
     public void newCustomer(Customer new_customer)
