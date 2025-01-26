@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredient:
     prefab: {fileID: 7872539831346592006, guid: 9ecd8ac923ad12d4f8004f8c83934fef, type: 3}
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 4cf786905b59c5348847f0fd4bf79674, type: 3}
     ingredientName: Bubbles Boba
     combination_name: Soapy
     ingredientType: 0

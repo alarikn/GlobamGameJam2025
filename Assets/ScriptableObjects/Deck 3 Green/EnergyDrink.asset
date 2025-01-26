@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredient:
     prefab: {fileID: 7872539831346592006, guid: a44f5d1ee1b1f6349b8af2da19890ffc, type: 3}
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 7e04e613e97ea8e439e11b98c89de8b6, type: 3}
     ingredientName: Energy Drink
     combination_name: Energy
     ingredientType: 1

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredient:
     prefab: {fileID: 7872539831346592006, guid: 64af608dd98dc6b4a80ea24c9dd151cf, type: 3}
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 0d80a1ab87b43454195bf3946e26052b, type: 3}
     ingredientName: Spinach
     combination_name: Strong
     ingredientType: 3
