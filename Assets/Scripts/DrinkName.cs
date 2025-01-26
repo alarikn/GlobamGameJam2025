@@ -30,6 +30,7 @@ public class DrinkName : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         ingredient = added_ingredient;
         text.text = ingredient.CombinationName;
         background.color = IngredientManager.LandColors[ingredient.IngredientLand];
+        if (ingredient.IngredientLand == IngredientLand.White) text.color = Color.black;
         ingredientUI.SetUI(ingredient);
     }
 
