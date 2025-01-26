@@ -48,7 +48,7 @@ public class Customer : MonoBehaviour
         }
 
         // Get a random required score
-        required_score = Random.Range((day - 1) * 10, day * 20);
+        required_score = Random.Range((day) * 5, day * 20);
 
         if (lastScore > required_score)
         {
