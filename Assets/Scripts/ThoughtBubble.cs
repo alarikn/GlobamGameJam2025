@@ -41,17 +41,12 @@ public class ThoughtBubble : MonoBehaviour
         requiredScoreT.text = required_score.ToString();
     }
 
-    public IEnumerator CheckOrder(List<Ingredient> used_ingredients, float base_score, CustomerVisualizer customerVisualizer)
+    public IEnumerator CheckOrder(List<Ingredient> addedIngredients, float base_score, CustomerVisualizer customerVisualizer)
     {
         score_text.text = base_score.ToString();
         score_text.gameObject.SetActive(true);
         float multiplied_score = base_score;
         var preferences = OrderPreference;
-
-        foreach (var preference in preferences)
-        {
-            Debug.Log(preference.IngredientName);
-        }
 
         // Multiply the score
         for (int i = 0; i < preferences.Count; i++)
@@ -59,7 +54,7 @@ public class ThoughtBubble : MonoBehaviour
             var orderObj = orderPreferences[i];
             var preferenceIngredient = preferences[i];
 
-            bool wasUsed = used_ingredients.Any(x => x.IngredientName == preferenceIngredient.IngredientName);
+            bool wasUsed = addedIngredients.Any(x => x.IngredientName == preferenceIngredient.IngredientName);
 
             float current_multiplier = 2f;
 

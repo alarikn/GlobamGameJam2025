@@ -15,5 +15,4 @@ public class IngredientBehavior : MonoBehaviour
         Ingredient = ingredient;
         ingredientUI.SetUI(Ingredient);
     }
-
 }

@@ -49,10 +49,10 @@ public class Customer : MonoBehaviour
         ThoughtBubble.newOrder(preferred_ingredients, required_score);
     }
 
-    public IEnumerator checkOrder(List<Ingredient> used_ingredients, int base_score)
+    public IEnumerator checkOrder(List<Ingredient> addedIngredients, int base_score)
     {
         // Update thought bubble visuals
-        yield return StartCoroutine(ThoughtBubble.CheckOrder(used_ingredients, base_score, visualizer));
+        yield return StartCoroutine(ThoughtBubble.CheckOrder(addedIngredients, base_score, visualizer));
     }
 
     public void TriggerMindControl(int count)
@@ -75,10 +75,8 @@ public class Customer : MonoBehaviour
             while (rand.IngredientName == ing.IngredientName || next >= randomIngredients.Count)
             {
                 rand = randomIngredients[next];
-                Debug.Log("Rand2: " + rand.IngredientName);
                 next++;
             }
-            Debug.Log("Rand2: " + rand.IngredientName);
 
             ThoughtBubble.OrderPreferences[i].SetPreference(rand);
         }

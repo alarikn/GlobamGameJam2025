@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -97,11 +98,24 @@ public class CupBehavior : MonoBehaviour
 
     public IEnumerator CheckScoreRoutine()
     {
+        var wait = new WaitForSeconds(0.35f);
         inventoryManager.DiscardOnTable();
 
         cupAnimator.Play("CloseLid", 0, 0);
 
         var scoring = (add: 0, multi: 1);
+
+        foreach (var ing in addedIngredients.Where(x => x.SpecialMove != SpecialMove.None))
+        {
+            switch (ing.SpecialMove)
+            {
+                case SpecialMove.Toxic:
+                    addedIngredients[0].IngredientLand = ing.LandTarget;
+                    yield return wait;
+                    break;
+            }
+        }
+
         foreach (var ing in addedIngredients)
         {
             ing.EvaluatePoints(addedIngredients, out int add, out int multi);
@@ -109,22 +123,22 @@ public class CupBehavior : MonoBehaviour
             scoring.multi += multi;
 
             scoringT.text = $"{scoring.add} x {scoring.multi}";
-            yield return new WaitForSeconds(0.5f);
+            yield return wait;
         }
 
         var score = scoring.add * scoring.multi;
         scoringT.text = $"{scoring.add} x {scoring.multi} = {score}";
 
-        yield return new WaitForSeconds(0.5f);
+        yield return wait;
 
         yield return StartCoroutine(current_customer.checkOrder(addedIngredients, score));
 
         yield return new WaitForSeconds(1.0f);
         drinkNameGenerator.clearWords();
         cupAnimator.Play("ServeDrink", 0, 0);
-        yield return new WaitForSeconds(0.5f);
+        yield return wait;
         current_customer.Visualizer.RemoveCustomerVisuals();
-        yield return new WaitForSeconds(0.5f);
+        yield return wait;
 
         if (customer_number >= customers_in_a_day)
         {

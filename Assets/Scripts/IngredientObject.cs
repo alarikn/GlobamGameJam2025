@@ -41,7 +41,7 @@ public class Ingredient
     public string IngredientName { get => String.IsNullOrEmpty(ingredientName) ? "Default" : ingredientName; }
     public string CombinationName { get => String.IsNullOrEmpty(combination_name) ? "Default" : combination_name; }
     public IngredientType IngredientType { get => ingredientType; }
-    public IngredientLand IngredientLand { get => ingredientLand; }
+    public IngredientLand IngredientLand { get => ingredientLand; set => ingredientLand = value; }
     public string FunnyDescription { get => funnyDescription; }
     public Sprite Sprite { get => sprite; }
     public IngredientType IngredientTarget { get => ingredientTarget; }
@@ -100,6 +100,8 @@ public class Ingredient
                     return $"<b>Trash {Score}</b> random ingredients and <b>take {Score}</b> ingredients";
                 case SpecialMove.MindControl:
                     return $"<b>Change {Score}</b> random customer <b>preferences</b>";
+                case SpecialMove.Toxic:
+                    return $"All ingredients in drink counts as {LandTarget.ToString()} land";
             }
         }
 
@@ -157,7 +159,7 @@ public enum SpecialMove
     Variety,
     Draw,
     MindControl,
-
+    Toxic,
 }
 
 public enum IngredientType

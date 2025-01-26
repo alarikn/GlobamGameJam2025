@@ -23,8 +23,8 @@ MonoBehaviour:
     powerType: 0
     countType: 0
     ingredientTarget: 0
-    landTarget: 0
+    landTarget: 2
     score: 1
-    specialMove: 0
+    specialMove: 4
     addsColor: 1
     colorToAdd: {r: 1.5157166, g: 0.49988687, b: 0, a: 1}

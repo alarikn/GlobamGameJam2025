@@ -6,6 +6,9 @@ public class Draggable : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] private UnityEvent OnHover;
     [SerializeField] private UnityEvent OnHoverExit;
+    [SerializeField] private float rightBoundary = 5;
+    [SerializeField] private float leftBoundary = -5;
+    [SerializeField] private float bottomBoundary = 0;
 
 
     private bool grabbed;
@@ -59,5 +62,21 @@ public class Draggable : MonoBehaviour
             var mousePos = Camera.main.ScreenToWorldPoint(mouseInput);
             transform.position = mousePos;
         }
+
+        if (transform.position.y <= bottomBoundary)
+        {
+            ResetPos();
+        }
+        if (!(leftBoundary <= transform.position.x && transform.position.x <= rightBoundary))
+        {
+            ResetPos();
+        }
+    }
+
+    private void ResetPos()
+    {
+        transform.position = ogPos;
+        if (!rb.isKinematic)
+            rb.linearVelocity = Vector3.zero;
     }
 }
