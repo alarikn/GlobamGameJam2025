@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Alien Milk
   m_EditorClassIdentifier: 
   ingredient:
-    prefab: {fileID: 0}
-    sprite: {fileID: 0}
+    prefab: {fileID: 7872539831346592006, guid: 146d7c1bf0386494d9bdfc76555d409d, type: 3}
+    sprite: {fileID: 21300000, guid: 89a04b0a79ac2ee4aaadadd621f06c34, type: 3}
     ingredientName: Alien Milk
     combination_name: Abducted
     ingredientType: 2

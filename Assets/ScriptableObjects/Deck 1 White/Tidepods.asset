@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredient:
     prefab: {fileID: 7872539831346592006, guid: b9d71b7efba83c3469876b70968854ff, type: 3}
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: bd6186cfa0dcec84d8c016cd8580bc1c, type: 3}
     ingredientName: Tidepods
     combination_name: Tasty
     ingredientType: 0

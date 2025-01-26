@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: OolongTea
   m_EditorClassIdentifier: 
   ingredient:
-    prefab: {fileID: 0}
-    sprite: {fileID: 0}
+    prefab: {fileID: 7872539831346592006, guid: 04bda69ffda9ad546bdf2c069b57c3be, type: 3}
+    sprite: {fileID: 21300000, guid: 156b17c97f6dec14ca6710bd35212b1d, type: 3}
     ingredientName: Oolong Tea
     combination_name: Oolong
     ingredientType: 1
