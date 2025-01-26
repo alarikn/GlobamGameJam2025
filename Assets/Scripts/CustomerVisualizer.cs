@@ -11,6 +11,13 @@ public class CustomerVisualizer : MonoBehaviour
 
     [SerializeField] private Material[] customerMaterials;
 
+    [SerializeField] private GameObject thoughBubbleVisuals;
+    [SerializeField] private GameObject[] thoughtBubbleDisablables;
+
+    private void Start()
+    {
+        HideBubble();
+    }
     public void SpawnCustomerVisuals()
     {
         RandomizeVisuals();
@@ -18,12 +25,22 @@ public class CustomerVisualizer : MonoBehaviour
         customerVisuals.SetActive(true);
         StartCoroutine(nameof(CustomerIdleBehaviour));
         AudioManager.Instance.PlaySoundEffect("Swoosh1");
+        StartCoroutine(ThoughBubbleSpawnLogic());
     }
 
     public void RemoveCustomerVisuals()
     {
         StopCoroutine(nameof(CustomerIdleBehaviour));
         StartCoroutine(CustomerDespawner());
+    }
+
+    private void HideBubble()
+    {
+        thoughBubbleVisuals.SetActive(false);
+        foreach (var element in thoughtBubbleDisablables)
+        {
+            element.SetActive(false);
+        }
     }
 
     public void CustomerHappy()
@@ -44,6 +61,7 @@ public class CustomerVisualizer : MonoBehaviour
         AudioManager.Instance.PlaySoundEffect("Swoosh1");
         yield return new WaitForSeconds(0.3f);
         customerVisuals.SetActive(false);
+        HideBubble();
     }
 
     public IEnumerator CustomerIdleBehaviour()
@@ -63,5 +81,20 @@ public class CustomerVisualizer : MonoBehaviour
     {
         Material selectedMaterial = customerMaterials[Random.Range(0, customerMaterials.Length)];
         customerRenderer.material = selectedMaterial;
+    }
+
+    private IEnumerator ThoughBubbleSpawnLogic()
+    {
+        yield return new WaitForSeconds(0.3f);
+        var animator = thoughBubbleVisuals.GetComponent<Animator>();
+        thoughBubbleVisuals.SetActive(true);
+        animator.Play("SpawnBubble");
+        yield return new WaitForSeconds(0.5f);
+
+        foreach(var element in thoughtBubbleDisablables)
+        {
+            element.SetActive(true);
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 }

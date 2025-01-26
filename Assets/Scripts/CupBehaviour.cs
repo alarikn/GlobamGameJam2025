@@ -108,6 +108,7 @@ public class CupBehavior : MonoBehaviour
 
         cupAnimator.Play("CloseLid", 0, 0);
         StartCoroutine(DrinkFinishedAudio());
+        ScoreManager.Instance.ShowFinalScoring(true);
 
         var scoring = (add: 0, multi: 1);
 
@@ -130,12 +131,18 @@ public class CupBehavior : MonoBehaviour
             scoring.add += add;
             scoring.multi += multi;
 
-            scoringT.text = $"{scoring.add} x {scoring.multi}";
+            ScoreManager.Instance.AddScoring(add, multi);
+
+            //scoringT.text = $"{scoring.add} x {scoring.multi}";
             yield return wait;
         }
 
+        yield return new WaitForSeconds(1.0f);
+        ScoreManager.Instance.AddScoreToFinal();
+        yield return new WaitForSeconds(0.5f);
+        ScoreManager.Instance.AddMultiToFinal();
         var score = scoring.add * scoring.multi;
-        scoringT.text = $"{scoring.add} x {scoring.multi} = {score}";
+        //scoringT.text = $"{scoring.add} x {scoring.multi} = {score}";
 
         yield return wait;
 
@@ -147,6 +154,9 @@ public class CupBehavior : MonoBehaviour
         yield return wait;
         current_customer.Visualizer.RemoveCustomerVisuals();
         yield return wait;
+
+        ScoreManager.Instance.ResetScoring();
+        ScoreManager.Instance.ShowFinalScoring(false);
 
         if (customer_number >= customers_in_a_day)
         {

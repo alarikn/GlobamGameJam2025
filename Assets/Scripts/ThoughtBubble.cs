@@ -43,8 +43,9 @@ public class ThoughtBubble : MonoBehaviour
 
     public IEnumerator CheckOrder(List<Ingredient> addedIngredients, float base_score, CustomerVisualizer customerVisualizer)
     {
-        score_text.text = base_score.ToString();
-        score_text.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        //score_text.text = base_score.ToString();
+        //score_text.gameObject.SetActive(true);
         float multiplied_score = base_score;
         var preferences = OrderPreference;
 
@@ -64,15 +65,16 @@ public class ThoughtBubble : MonoBehaviour
                 multiplied_score *= current_multiplier;
                 current_multiplier = 1f + ((current_multiplier - 1f) / 2f);
 
-                score_text.transform.position = orderObj.transform.position;
-                score_text.text = multiplied_score.ToString();
+                //score_text.transform.position = orderObj.transform.position;
+                //score_text.text = multiplied_score.ToString();
+                ScoreManager.Instance.AddPreferenceMulti(current_multiplier);
 
                 yield return new WaitForSeconds(0.5f);
             }
             orderObj.SetSuccess(wasUsed);
         }
 
-        score_text.transform.position = score_text_end_pos.transform.position;
+        //score_text.transform.position = score_text_end_pos.transform.position;
 
         yield return new WaitForSeconds(1f);
 
@@ -93,6 +95,6 @@ public class ThoughtBubble : MonoBehaviour
 
     public void HideMultipliedScoreText()
     {
-        score_text.gameObject.SetActive(false);
+        //score_text.gameObject.SetActive(false);
     }
 }
