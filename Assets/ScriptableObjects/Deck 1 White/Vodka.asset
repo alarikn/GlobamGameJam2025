@@ -17,14 +17,14 @@ MonoBehaviour:
     sprite: {fileID: 0}
     ingredientName: Vodka
     combination_name: Spiked
-    ingredientType: 0
+    ingredientType: 3
     ingredientLand: 0
     funnyDescription: 100% pure alcohol.
     powerType: 0
-    countType: 1
-    ingredientTarget: 0
+    countType: 0
+    ingredientTarget: 3
     landTarget: 0
-    score: 1
-    specialMove: 0
-    addsColor: 0
-    colorToAdd: {r: 0, g: 0, b: 0, a: 0}
+    score: 3
+    specialMove: 4
+    addsColor: 1
+    colorToAdd: {r: 0.9716981, g: 0.9716981, b: 0.9716981, a: 0.41960785}

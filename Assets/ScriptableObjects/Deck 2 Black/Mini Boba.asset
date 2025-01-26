@@ -20,11 +20,11 @@ MonoBehaviour:
     ingredientType: 0
     ingredientLand: 2
     funnyDescription: Boba but smol.
-    powerType: 0
+    powerType: 1
     countType: 0
     ingredientTarget: 0
     landTarget: 0
     score: 3
-    specialMove: 0
+    specialMove: 2
     addsColor: 0
-    colorToAdd: {r: 0, g: 0, b: 0, a: 0}
+    colorToAdd: {r: 0.01886791, g: 0.01886791, b: 0.01886791, a: 0}
