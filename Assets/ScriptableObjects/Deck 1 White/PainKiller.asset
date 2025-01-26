@@ -22,9 +22,9 @@ MonoBehaviour:
     funnyDescription: Owie go away!
     powerType: 0
     countType: 1
-    ingredientTarget: 0
+    ingredientTarget: 3
     landTarget: 0
-    score: 1
+    score: 3
     specialMove: 0
     addsColor: 0
     colorToAdd: {r: 0, g: 0, b: 0, a: 0}

@@ -22,7 +22,7 @@ MonoBehaviour:
     funnyDescription: Have you ever had BeaverTails?
     powerType: 0
     countType: 0
-    ingredientTarget: 0
+    ingredientTarget: 3
     landTarget: 0
     score: 4
     specialMove: 0
