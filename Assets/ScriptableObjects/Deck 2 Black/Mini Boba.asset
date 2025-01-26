@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Mini Boba
   m_EditorClassIdentifier: 
   ingredient:
-    prefab: {fileID: 0}
-    sprite: {fileID: 0}
+    prefab: {fileID: 7872539831346592006, guid: ef0200e81471d034f9012cd361ea0ad1, type: 3}
+    sprite: {fileID: 21300000, guid: f2ad4584873670a4197e3fe4ac18c851, type: 3}
     ingredientName: Mini Boba
     combination_name: Mini
     ingredientType: 0

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Rotten Milk
   m_EditorClassIdentifier: 
   ingredient:
-    prefab: {fileID: 0}
-    sprite: {fileID: 0}
+    prefab: {fileID: 7872539831346592006, guid: 477d0144dc734884b95122508d67d259, type: 3}
+    sprite: {fileID: 21300000, guid: 0271626c3fc70cb499ee769bccb7bfbc, type: 3}
     ingredientName: Rotten Milk
     combination_name: Rotten
     ingredientType: 2
