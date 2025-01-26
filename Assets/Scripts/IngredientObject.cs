@@ -12,7 +12,7 @@ public class IngredientObject : ScriptableObject
 
 
 [Serializable]
-public class Ingredient
+public class Ingredient : ICloneable
 {
     [Header("Assets")]
     [SerializeField] private GameObject prefab;
@@ -50,6 +50,31 @@ public class Ingredient
     public int Score { get => score; }
     public bool AddsColor { get => addsColor; }
     [ColorUsageAttribute(true, true)] public Color ColorToAdd { get => colorToAdd; }
+
+    public object Clone()
+    {
+        return new Ingredient()
+        {
+            prefab = prefab,
+            sprite = sprite,
+
+            ingredientName = string.Copy(ingredientName),
+            combination_name = string.Copy(combination_name),
+            ingredientType = ingredientType,
+            ingredientLand = ingredientLand,
+            funnyDescription = string.Copy(funnyDescription),
+
+            powerType = powerType,
+            countType = countType,
+            ingredientTarget = ingredientTarget,
+            landTarget = landTarget,
+            score = score,
+            specialMove = specialMove,
+
+            addsColor = addsColor,
+            colorToAdd = new Color(colorToAdd.r, colorToAdd.g, colorToAdd.b, colorToAdd.a)
+        };
+    }
 
     public void EvaluatePoints(List<Ingredient> ingredients, out int add, out int multi)
     {

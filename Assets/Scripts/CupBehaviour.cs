@@ -42,7 +42,7 @@ public class CupBehavior : MonoBehaviour
             if (addedIngredients.Count >= 4)
                 return;
 
-            var ing = ingredientBehavior.Ingredient;
+            var ing = (Ingredient)ingredientBehavior.Ingredient.Clone();
 
             var last = addedIngredients.Count + 1 > 3;
             CheckSpecial(ing, last);
