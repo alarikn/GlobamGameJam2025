@@ -16,6 +16,7 @@ public class CustomerVisualizer : MonoBehaviour
         RandomizeVisuals();
         customerVisuals.SetActive(true);
         StartCoroutine(nameof(CustomerIdleBehaviour));
+        AudioManager.Instance.PlaySoundEffect("Swoosh1");
     }
 
     public void RemoveCustomerVisuals()
@@ -26,17 +27,20 @@ public class CustomerVisualizer : MonoBehaviour
 
     public void CustomerHappy()
     {
+        AudioManager.Instance.PlaySoundEffect("HappyCustomer");
         customerAnimator.SetTrigger("Excited");
     }
 
     public void CustomerDisappointed()
     {
+        AudioManager.Instance.PlaySoundEffect("DisappointedCustomer");
         customerAnimator.SetTrigger("Disappointed");
     }
 
     private IEnumerator CustomerDespawner()
     {
         customerMover.Play("LeaveCustomer", 0, 0);
+        AudioManager.Instance.PlaySoundEffect("Swoosh1");
         yield return new WaitForSeconds(0.5f);
         customerVisuals.SetActive(false);
     }

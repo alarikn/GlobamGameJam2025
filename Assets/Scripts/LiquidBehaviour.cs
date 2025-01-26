@@ -105,11 +105,13 @@ public class LiquidBehaviour : MonoBehaviour
 
     private void PlayEffect(IngredientType ingredientType)
     {
+        AudioManager.Instance.PlaySoundEffect("AddIngredient");
         switch (ingredientType)
         {
-            case IngredientType.Tea: steamParticles.Play(); break;
-            case IngredientType.Bubble: bubbleParticles.Play(); break;
-            case IngredientType.Flavor: starParticles.Play(); break;
+            case IngredientType.Tea: AudioManager.Instance.PlaySoundEffect("Steam"); steamParticles.Play(); break;
+            case IngredientType.Bubble: AudioManager.Instance.PlaySoundEffect("Bubbles"); bubbleParticles.Play(); break;
+            case IngredientType.Flavor: AudioManager.Instance.PlaySoundEffect("Stars"); starParticles.Play(); break;
+            case IngredientType.Milk: AudioManager.Instance.PlaySoundEffect("Splash"); break;
             default: break;
         }
     }

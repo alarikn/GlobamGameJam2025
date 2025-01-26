@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3c2283c2571e8144be6e41acb5e4d75, type: 3}
-  m_Name: SpawnIngredients
+  m_Name: AddIngredient
   m_EditorClassIdentifier: 
-  soundName: SpawnIngredients
-  soundClip: {fileID: 8300000, guid: e2e82267c91645843b5288c0c1ffb3d1, type: 3}
-  volume: 0.1
-  randomizePitch: 0
+  soundName: AddIngredient
+  soundClip: {fileID: 8300000, guid: 80c3509bef5bba44699a0ecb104a579c, type: 3}
+  volume: 0.2
+  randomizePitch: 1

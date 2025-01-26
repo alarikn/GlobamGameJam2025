@@ -177,7 +177,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectList:
+  - {fileID: 11400000, guid: 1d5584eeb91faa14eb55b50fe268559f, type: 2}
+  - {fileID: 11400000, guid: 1c73d178cec6a95449f6340aee73cfc5, type: 2}
+  - {fileID: 11400000, guid: 1f3e3aa360dfb7644b3cc5ee84b7561e, type: 2}
+  - {fileID: 11400000, guid: 5fc39c2aa75b26e469cdcd76c9d1f63c, type: 2}
+  - {fileID: 11400000, guid: 7a1c7cf6c915116419fc027259dc5c31, type: 2}
+  - {fileID: 11400000, guid: ee6b685e6b40b7545a26f9c7a0f01d59, type: 2}
+  - {fileID: 11400000, guid: 042cfb8054174f742848058b75afc8cb, type: 2}
   - {fileID: 11400000, guid: 424a10a6d05fb2a468b66dd892f732dc, type: 2}
+  - {fileID: 11400000, guid: afbb8504a8c9e434f94e7fcf5dec5b32, type: 2}
+  - {fileID: 11400000, guid: 8f7e03934af3c914382864c09d18ad94, type: 2}
+  - {fileID: 11400000, guid: 120c9295e998b0a48a3269fae7f36f21, type: 2}
+  - {fileID: 11400000, guid: bf49b50eabf8340498c02f4a834a40af, type: 2}
+  - {fileID: 11400000, guid: 280f5e2f237efaa4c8187b78b8c04b3f, type: 2}
+  - {fileID: 11400000, guid: 249a12f26bb48534da90a82cf8a57543, type: 2}
 --- !u!114 &3064376324322885594
 MonoBehaviour:
   m_ObjectHideFlags: 0

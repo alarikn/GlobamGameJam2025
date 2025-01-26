@@ -7,12 +7,16 @@ public class MusicManager : MonoBehaviour
     [SerializeField] private AudioClip shopMusic;
     [SerializeField] private AudioSource musicPlayer;
 
-    private float volume;
+    private float volume = 0.15f;
     public static MusicManager Instance;
 
     private void Awake()
     {
         Instance = this;
+    }
+    private void Start()
+    {
+
     }
 
     public void ShopMusic(bool value)
@@ -29,11 +33,11 @@ public class MusicManager : MonoBehaviour
 
     private IEnumerator FadeMusic(AudioClip songTo)
     {
-        volume = musicPlayer.volume;
-        while(musicPlayer.volume > 0)
+        while(musicPlayer.volume > 0.02)
         {
             musicPlayer.volume -= 0.02f;
             yield return new WaitForSeconds(0.03f);
+            if (musicPlayer.volume <= 0) break;
         }
 
         float timeStamp = musicPlayer.time;
@@ -46,6 +50,9 @@ public class MusicManager : MonoBehaviour
         {
             musicPlayer.volume += 0.02f;
             yield return new WaitForSeconds(0.03f);
+            if (musicPlayer.volume >= volume) break;
         }
+
+        musicPlayer.volume = volume;
     }
 }

@@ -20,6 +20,10 @@ public class AudioManager : MonoBehaviour
         {
             if(effect.soundName == soundName)
             {
+                audioSource.pitch = 1.0f;
+
+                if(effect.randomizePitch) audioSource.pitch = Random.Range(0.8f, 1.2f);
+
                 audioSource.volume = effect.volume;
                 audioSource.PlayOneShot(effect.soundClip);
             }
