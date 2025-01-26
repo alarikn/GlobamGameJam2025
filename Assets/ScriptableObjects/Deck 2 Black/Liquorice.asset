@@ -22,7 +22,7 @@ MonoBehaviour:
     funnyDescription: People not from Finland loves these.
     powerType: 0
     countType: 0
-    ingredientTarget: 0
+    ingredientTarget: 3
     landTarget: 1
     score: 2
     specialMove: 2

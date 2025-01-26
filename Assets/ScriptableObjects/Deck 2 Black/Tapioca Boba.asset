@@ -17,12 +17,12 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: c97bb014fc3de744792996312a017697, type: 3}
     ingredientName: Tapioca Boba
     combination_name: Bubble
-    ingredientType: 0
+    ingredientType: 3
     ingredientLand: 2
     funnyDescription: Standard boba, chewy sweet goodness.
     powerType: 0
     countType: 0
-    ingredientTarget: 1
+    ingredientTarget: 3
     landTarget: 0
     score: 2
     specialMove: 0

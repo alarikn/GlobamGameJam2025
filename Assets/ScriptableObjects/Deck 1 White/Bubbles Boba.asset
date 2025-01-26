@@ -20,7 +20,7 @@ MonoBehaviour:
     ingredientType: 0
     ingredientLand: 0
     funnyDescription: '"I''m just as tough and strong and mean as Buttercup and Blossom"'
-    powerType: 0
+    powerType: 1
     countType: 0
     ingredientTarget: 3
     landTarget: 0

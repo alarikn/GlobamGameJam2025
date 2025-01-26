@@ -21,10 +21,10 @@ MonoBehaviour:
     ingredientLand: 1
     funnyDescription: Hold this next to your cat, they get scared.
     powerType: 0
-    countType: 0
+    countType: 1
     ingredientTarget: 0
-    landTarget: 0
-    score: 10
-    specialMove: 1
+    landTarget: 1
+    score: 2
+    specialMove: 0
     addsColor: 1
     colorToAdd: {r: 0.39190543, g: 1.3396226, b: 0.056870747, a: 1}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Vodka
   m_EditorClassIdentifier: 
   ingredient:
-    prefab: {fileID: 0}
+    prefab: {fileID: 7872539831346592006, guid: 9e5456dcc608bf849b08c25c009d837c, type: 3}
     sprite: {fileID: 0}
     ingredientName: Vodka
     combination_name: Spiked

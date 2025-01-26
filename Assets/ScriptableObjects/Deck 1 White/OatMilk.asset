@@ -20,11 +20,11 @@ MonoBehaviour:
     ingredientType: 2
     ingredientLand: 0
     funnyDescription: Grain your muscle!
-    powerType: 0
-    countType: 0
+    powerType: 1
+    countType: 1
     ingredientTarget: 3
-    landTarget: 0
-    score: 10
-    specialMove: 1
+    landTarget: 2
+    score: 2
+    specialMove: 0
     addsColor: 1
     colorToAdd: {r: 1, g: 0.91538364, b: 0.514151, a: 0}
