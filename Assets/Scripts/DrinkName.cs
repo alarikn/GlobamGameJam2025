@@ -18,6 +18,13 @@ public class DrinkName : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     [SerializeField] private RectTransform my_RectTransform;
     [SerializeField] private RectTransform background_RectTransform;
 
+    private Animator nameAnimator;
+
+    private void Start()
+    {
+        nameAnimator = GetComponent<Animator>();
+    }
+
     public void setWord(Ingredient added_ingredient)
     {
         ingredient = added_ingredient;
@@ -54,5 +61,10 @@ public class DrinkName : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     public void UpdateColor()
     {
         background.color = IngredientManager.LandColors[ingredient.IngredientLand];
+    }
+
+    public void Shake()
+    {
+        nameAnimator.Play("DrinkNameShake",0,0);
     }
 }

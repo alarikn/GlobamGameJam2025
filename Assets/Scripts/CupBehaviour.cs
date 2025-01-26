@@ -133,8 +133,11 @@ public class CupBehavior : MonoBehaviour
             */
         }
 
+        int scoredIngs = 0;
         foreach (var ing in addedIngredients)
         {
+            drinkNameGenerator.ShakeName(scoredIngs);
+            scoredIngs++;
             ing.EvaluatePoints(addedIngredients, out int add, out int multi);
             scoring.add += add;
             scoring.multi += multi;
@@ -142,7 +145,7 @@ public class CupBehavior : MonoBehaviour
             ScoreManager.Instance.AddScoring(add, multi);
 
             //scoringT.text = $"{scoring.add} x {scoring.multi}";
-            yield return wait;
+            yield return new WaitForSeconds(0.6f);
         }
 
         yield return new WaitForSeconds(1.0f);

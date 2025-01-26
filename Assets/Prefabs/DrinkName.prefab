@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 5, y: -5}
+  m_AnchoredPosition: {x: 30, y: -30}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &520206618930635305
@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 068daffa14ad3ae43ac1069d7c7ad9de, type: 2}
-  m_sharedMaterial: {fileID: 3528503851536093987, guid: 068daffa14ad3ae43ac1069d7c7ad9de, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8279f3576ff21e441b3c3545bf787f3f, type: 2}
+  m_sharedMaterial: {fileID: -7403427910087775354, guid: 8279f3576ff21e441b3c3545bf787f3f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -163,6 +163,7 @@ GameObject:
   - component: {fileID: 7916457360594327583}
   - component: {fileID: 6918012487374410619}
   - component: {fileID: 6592925723634955192}
+  - component: {fileID: 9102746936649190154}
   m_Layer: 5
   m_Name: DrinkName
   m_TagString: Untagged
@@ -189,7 +190,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 10}
+  m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7916457360594327583
 CanvasRenderer:
@@ -211,6 +212,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a40891b117bac824db12ab56ea61c639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ingredient:
+    prefab: {fileID: 0}
+    sprite: {fileID: 0}
+    ingredientName: 
+    combination_name: 
+    ingredientType: 0
+    ingredientLand: 0
+    funnyDescription: 
+    powerType: 0
+    countType: 0
+    ingredientTarget: 0
+    landTarget: 0
+    score: 0
+    specialMove: 0
+    addsColor: 0
+    colorToAdd: {r: 0, g: 0, b: 0, a: 0}
   background: {fileID: 3392263670462242235}
   text: {fileID: 759409319393179280}
   ingredientUI: {fileID: 3137338175150454118}
@@ -277,6 +294,28 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &9102746936649190154
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4486127421882834739}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6aa92752e14bd684ebd89df8f9d62fd4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5631047574347145607
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,7 +346,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4010134089457325083}
   m_Father: {fileID: 6603613287778996933}
@@ -345,7 +384,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 6f6830984513e844881659e3e0cf5089, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -354,7 +393,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 6
 --- !u!114 &7162458102724201898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,10 +407,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 5
-    m_Right: 5
-    m_Top: 0
-    m_Bottom: 0
+    m_Left: 30
+    m_Right: 30
+    m_Top: 30
+    m_Bottom: 30
   m_ChildAlignment: 4
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
@@ -393,8 +432,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalFit: 2
-  m_VerticalFit: 2
+  m_HorizontalFit: 1
+  m_VerticalFit: 1
 --- !u!1001 &2475705673834800858
 PrefabInstance:
   m_ObjectHideFlags: 0

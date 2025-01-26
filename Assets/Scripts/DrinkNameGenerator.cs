@@ -45,4 +45,9 @@ public class DrinkNameGenerator : MonoBehaviour
             drinkName.UpdateColor();
         }
     }
+
+    public void ShakeName(int id)
+    {
+        drinkNames[id].Shake();
+    }
 }

@@ -70,9 +70,9 @@ public class ThoughtBubble : MonoBehaviour
 
                 //score_text.transform.position = orderObj.transform.position;
                 //score_text.text = multiplied_score.ToString();
-                ScoreManager.Instance.AddPreferenceMulti(current_multiplier);
 
                 yield return new WaitForSeconds(0.5f);
+                ScoreManager.Instance.AddPreferenceMulti(current_multiplier);
             }
             orderObj.SetSuccess(wasUsed);
         }
