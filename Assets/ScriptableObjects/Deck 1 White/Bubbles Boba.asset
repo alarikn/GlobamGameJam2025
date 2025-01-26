@@ -22,9 +22,9 @@ MonoBehaviour:
     funnyDescription: '"I''m just as tough and strong and mean as Buttercup and Blossom"'
     powerType: 0
     countType: 0
-    ingredientTarget: 0
+    ingredientTarget: 3
     landTarget: 0
-    score: 0
+    score: 2
     specialMove: 2
     addsColor: 0
     colorToAdd: {r: 0, g: 0, b: 0, a: 0}

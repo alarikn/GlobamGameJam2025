@@ -23,7 +23,7 @@ MonoBehaviour:
     powerType: 0
     countType: 0
     ingredientTarget: 0
-    landTarget: 0
+    landTarget: 1
     score: 2
     specialMove: 0
     addsColor: 1

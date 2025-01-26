@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Spinach
   m_EditorClassIdentifier: 
   ingredient:
-    prefab: {fileID: 0}
+    prefab: {fileID: 7872539831346592006, guid: 64af608dd98dc6b4a80ea24c9dd151cf, type: 3}
     sprite: {fileID: 0}
     ingredientName: Spinach
     combination_name: Strong
@@ -24,7 +24,7 @@ MonoBehaviour:
     countType: 1
     ingredientTarget: 0
     landTarget: 0
-    score: 1
+    score: 2
     specialMove: 0
-    addsColor: 0
+    addsColor: 1
     colorToAdd: {r: 0.12473152, g: 0.7924528, b: 0, a: 1}

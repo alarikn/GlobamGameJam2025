@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cucumber
   m_EditorClassIdentifier: 
   ingredient:
-    prefab: {fileID: 0}
+    prefab: {fileID: 7872539831346592006, guid: a8cb473c91cbc9544a17aa931bde98d5, type: 3}
     sprite: {fileID: 0}
     ingredientName: Cucumber
     combination_name: Cucumber
@@ -25,6 +25,6 @@ MonoBehaviour:
     ingredientTarget: 0
     landTarget: 0
     score: 2
-    specialMove: 0
+    specialMove: 1
     addsColor: 1
     colorToAdd: {r: 0.39190543, g: 1.3396226, b: 0.056870747, a: 1}

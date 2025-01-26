@@ -22,9 +22,9 @@ MonoBehaviour:
     funnyDescription: These look real tasty!
     powerType: 0
     countType: 1
-    ingredientTarget: 0
-    landTarget: 0
-    score: 1
-    specialMove: 0
-    addsColor: 0
-    colorToAdd: {r: 0, g: 0, b: 0, a: 0}
+    ingredientTarget: 3
+    landTarget: 2
+    score: 3
+    specialMove: 4
+    addsColor: 1
+    colorToAdd: {r: 0, g: 0.37871128, b: 0.754717, a: 0}
