@@ -39,16 +39,15 @@ public class CupBehavior : MonoBehaviour
 
             var ing = ingredientBehavior.Ingredient;
 
+            var last = addedIngredients.Count + 1 > 3;
+            CheckSpecial(ing, last);
+
             addedIngredients.Add(ing);
             drinkNameGenerator.addedIngredient(ing);
             inventoryManager.Discard(ing);
             Destroy(ingredientBehavior.gameObject);
-            //ingredientBehavior.gameObject.SetActive(false);
 
-            var last = addedIngredients.Count > 3;
-
-            CheckSpecial(ing, last);
-
+            //Update these yes
             if (ingredientBehavior.Ingredient.AddsColor)
             {
                 liquidBehaviour.AddItem(ingredientBehavior.Ingredient.ColorToAdd, ingredientBehavior.Ingredient.IngredientType);
@@ -80,6 +79,12 @@ public class CupBehavior : MonoBehaviour
             case SpecialMove.MindControl:
                 current_customer.TriggerMindControl(ing.Score);
                 break;
+            case SpecialMove.Toxic:
+                foreach (var added in addedIngredients)
+                {
+                    added.IngredientLand = ing.LandTarget;
+                }
+                break;
             default:
                 break;
         }
@@ -107,6 +112,7 @@ public class CupBehavior : MonoBehaviour
 
         foreach (var ing in addedIngredients.Where(x => x.SpecialMove != SpecialMove.None))
         {
+            /*
             switch (ing.SpecialMove)
             {
                 case SpecialMove.Toxic:
@@ -114,6 +120,7 @@ public class CupBehavior : MonoBehaviour
                     yield return wait;
                     break;
             }
+            */
         }
 
         foreach (var ing in addedIngredients)
