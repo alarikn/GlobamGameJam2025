@@ -30,6 +30,7 @@ public class CupBehavior : MonoBehaviour
     private void Start()
     {
         liquidBehaviour = GetComponent<LiquidBehaviour>();
+        livesT.text = lives.ToString();
     }
 
     private void OnTriggerEnter(Collider other)

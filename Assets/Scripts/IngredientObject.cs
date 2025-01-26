@@ -85,6 +85,8 @@ public class Ingredient : ICloneable
         switch (SpecialMove)
         {
             case SpecialMove.Draw:
+            case SpecialMove.MindControl:
+            case SpecialMove.Toxic:
                 return;
             default:
                 break;
@@ -105,10 +107,10 @@ public class Ingredient : ICloneable
         switch (countType)
         {
             case CountType.Add:
-                add = value;
+                add += value;
                 break;
             case CountType.Multi:
-                multi = value;
+                multi += value;
                 break;
         }
     }
