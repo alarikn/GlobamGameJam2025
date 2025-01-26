@@ -81,6 +81,7 @@ public class ThoughtBubble : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
+        ScoreManager.Instance.FinalScoreTMP.text = multiplied_score.ToString();
         // Change color for the score text
         if (multiplied_score >= required_score)
         {

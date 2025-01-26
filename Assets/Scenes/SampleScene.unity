@@ -8552,7 +8552,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1182713081324456607, guid: c71196d812a55d94a954cac688056fae, type: 3}
       propertyPath: lives
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1182713081324456607, guid: c71196d812a55d94a954cac688056fae, type: 3}
       propertyPath: livesT

@@ -25,6 +25,8 @@ public class ScoreManager : MonoBehaviour
 
     public static ScoreManager Instance;
 
+    public TextMeshProUGUI FinalScoreTMP { get => finalScoreTMP; set => finalScoreTMP = value; }
+
     private void Awake()
     {
         Instance = this;
@@ -40,7 +42,7 @@ public class ScoreManager : MonoBehaviour
         multiScoreAnimator.Play("ResetScore", 0, 0);
         baseScoreTMP.text = baseScore.ToString();
         multiScoreTMP.text = "X" + multiScore.ToString();
-        finalScoreTMP.text = finalScore.ToString();
+        FinalScoreTMP.text = finalScore.ToString();
     }
 
     public void AddScoring(int scoreAmount, int multiAmount)
@@ -128,10 +130,10 @@ public class ScoreManager : MonoBehaviour
             if (diff > 100) addition = 50;
 
             currentFinal += addition;
-            finalScoreTMP.text = currentFinal.ToString();
+            FinalScoreTMP.text = currentFinal.ToString();
             yield return new WaitForSeconds(0.02f);
         }
-        finalScoreTMP.text = finalScore.ToString();
+        FinalScoreTMP.text = finalScore.ToString();
     }
 
     public void ShowFinalScoring(bool value)
