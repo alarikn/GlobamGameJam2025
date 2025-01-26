@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Maple Syrup
   m_EditorClassIdentifier: 
   ingredient:
-    prefab: {fileID: 0}
-    sprite: {fileID: 0}
+    prefab: {fileID: 7872539831346592006, guid: 4e7efa5028c684742a48ae01720ad0c7, type: 3}
+    sprite: {fileID: 21300000, guid: 0d634e53301a9c94493ef39d98d78486, type: 3}
     ingredientName: Maple Syrup
     combination_name: Sticky
     ingredientType: 3

@@ -8676,7 +8676,7 @@ PrefabInstance:
       objectReference: {fileID: 1106627786}
     - target: {fileID: 2590686437081747865, guid: 796ad9cfe4d70cd40b05cb2adbde1106, type: 3}
       propertyPath: spawnDelay
-      value: 0.09
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 2590686437081747865, guid: 796ad9cfe4d70cd40b05cb2adbde1106, type: 3}
       propertyPath: cupBehavior

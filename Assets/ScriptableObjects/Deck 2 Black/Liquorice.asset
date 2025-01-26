@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredient:
     prefab: {fileID: 7872539831346592006, guid: dfa4d300446266b459223ff0c098e215, type: 3}
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 12501066512bc174c91a6ccad563b054, type: 3}
     ingredientName: Liquorice
     combination_name: Ruined
     ingredientType: 0

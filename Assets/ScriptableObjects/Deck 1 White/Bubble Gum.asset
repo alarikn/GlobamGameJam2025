@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredient:
     prefab: {fileID: 7872539831346592006, guid: a0b10ef5087889946a808913512dc230, type: 3}
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 812dde8eca96c184084bf9bb4600b847, type: 3}
     ingredientName: Bubble Gum
     combination_name: Gummy
     ingredientType: 0
