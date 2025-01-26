@@ -175,7 +175,7 @@ public class CupBehavior : MonoBehaviour
         {
             yield return new WaitForSeconds(1.0f);
             drinkNameGenerator.clearWords();
-            cupAnimator.Play("ServeDrink", 0, 0);
+            //cupAnimator.Play("ServeDrink", 0, 0);
             yield return wait;
             current_customer.Visualizer.RemoveCustomerVisuals();
             yield return wait;

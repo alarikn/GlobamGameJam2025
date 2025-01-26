@@ -325,7 +325,8 @@ MonoBehaviour:
   - {fileID: 3149129748679916204}
   spawned: []
   drawSpawn: {fileID: 2883077794423269505}
-  spawnDelay: 0.9
+  spawnDelay: 0.09
+  cupBehavior: {fileID: 0}
 --- !u!1 &5783339639135737517
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,6 +377,7 @@ MonoBehaviour:
   customer: {fileID: 0}
   currentDeck: []
   spawnCount: 6
+  cupBehavior: {fileID: 0}
 --- !u!1 &5969673541537280598
 GameObject:
   m_ObjectHideFlags: 0
