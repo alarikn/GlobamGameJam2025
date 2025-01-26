@@ -1090,7 +1090,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &5266929739341492513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1126,6 +1126,32 @@ MonoBehaviour:
   typeT: {fileID: 8235714403283630969}
   colorImage: {fileID: 7591756121066013980}
   baseScoreT: {fileID: 1730540713812133859}
+  blackLandColors:
+  - {r: 0.09433961, g: 0.09433961, b: 0.09433961, a: 1}
+  - {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 1}
+  - {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 1}
+  greenLandColors:
+  - {r: 0.09158064, g: 0.3962264, b: 0.17314875, a: 1}
+  - {r: 0.24554999, g: 0.5849056, b: 0.336915, a: 1}
+  - {r: 0.44010326, g: 0.8113208, b: 0.53938234, a: 1}
+  whiteLandColors:
+  - {r: 0.5396493, g: 0.62894315, b: 0.6320754, a: 1}
+  - {r: 0.8204432, g: 0.93457144, b: 0.9716981, a: 1}
+  - {r: 0.8537736, g: 0.9796746, b: 1, a: 1}
+  texts:
+  - {fileID: 3456734486059297280}
+  - {fileID: 4501469471356002547}
+  - {fileID: 2626618198002744387}
+  - {fileID: 1730540713812133859}
+  DarkImages:
+  - {fileID: 8410891340036473792}
+  - {fileID: 7169177278788060971}
+  - {fileID: 55880738464055137}
+  mediumImages:
+  - {fileID: 87507575373038421}
+  lightsImages:
+  - {fileID: 843403343886942363}
+  - {fileID: 1083338598747081468}
 --- !u!1 &6651533312666613824
 GameObject:
   m_ObjectHideFlags: 0
