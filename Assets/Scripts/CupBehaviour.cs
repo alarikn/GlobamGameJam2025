@@ -107,6 +107,7 @@ public class CupBehavior : MonoBehaviour
         inventoryManager.DiscardOnTable();
 
         cupAnimator.Play("CloseLid", 0, 0);
+        StartCoroutine(DrinkFinishedAudio());
 
         var scoring = (add: 0, multi: 1);
 
@@ -157,6 +158,16 @@ public class CupBehavior : MonoBehaviour
         {
             NewCustomer(false);
         }
+    }
+
+    private IEnumerator DrinkFinishedAudio()
+    {
+        yield return new WaitForSeconds(0.5f);
+        AudioManager.Instance.PlaySoundEffect("Swoosh1");
+        yield return new WaitForSeconds(0.25f);
+        AudioManager.Instance.PlaySoundEffect("DrinkFinished2");
+        yield return new WaitForSeconds(0.5f);
+        AudioManager.Instance.PlaySoundEffect("DrinkFinished");
     }
 
     public void NewCustomer(bool new_day)

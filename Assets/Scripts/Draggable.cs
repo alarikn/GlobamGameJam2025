@@ -44,7 +44,7 @@ public class Draggable : MonoBehaviour
         rb.isKinematic = true;
         transform.rotation = Quaternion.identity;
         grabbed = true;
-
+        AudioManager.Instance.PlaySoundEffect("IngredientDrop");
     }
 
     public void Ungrab()

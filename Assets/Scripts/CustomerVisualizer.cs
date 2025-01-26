@@ -14,6 +14,7 @@ public class CustomerVisualizer : MonoBehaviour
     public void SpawnCustomerVisuals()
     {
         RandomizeVisuals();
+        customerVisuals.SetActive(false);
         customerVisuals.SetActive(true);
         StartCoroutine(nameof(CustomerIdleBehaviour));
         AudioManager.Instance.PlaySoundEffect("Swoosh1");
@@ -41,7 +42,7 @@ public class CustomerVisualizer : MonoBehaviour
     {
         customerMover.Play("LeaveCustomer", 0, 0);
         AudioManager.Instance.PlaySoundEffect("Swoosh1");
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
         customerVisuals.SetActive(false);
     }
 

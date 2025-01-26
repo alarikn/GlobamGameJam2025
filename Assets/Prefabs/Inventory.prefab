@@ -325,7 +325,7 @@ MonoBehaviour:
   - {fileID: 3149129748679916204}
   spawned: []
   drawSpawn: {fileID: 2883077794423269505}
-  spawnDelay: 0.2
+  spawnDelay: 0.9
 --- !u!1 &5783339639135737517
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,7 +373,6 @@ MonoBehaviour:
   ingredientManager: {fileID: 11400000, guid: 5794cae7e2b41a6458c784910246204f, type: 2}
   spawner: {fileID: 2590686437081747865}
   storeScript: {fileID: 0}
-  dayEndScreen: {fileID: 0}
   customer: {fileID: 0}
   currentDeck: []
   spawnCount: 6
