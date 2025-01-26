@@ -21,10 +21,10 @@ MonoBehaviour:
     ingredientLand: 2
     funnyDescription: Pungent lovely lovely scent. Tasty!
     powerType: 1
-    countType: 0
+    countType: 1
     ingredientTarget: 0
-    landTarget: 0
-    score: 2
-    specialMove: 0
+    landTarget: 1
+    score: 5
+    specialMove: 1
     addsColor: 1
     colorToAdd: {r: 0.19357692, g: 0.46226418, b: 0.032707367, a: 1}

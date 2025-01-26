@@ -24,7 +24,7 @@ MonoBehaviour:
     countType: 1
     ingredientTarget: 0
     landTarget: 0
-    score: 3
+    score: 2
     specialMove: 0
     addsColor: 1
     colorToAdd: {r: 1.0717735, g: 0.030849937, b: 0, a: 1}
