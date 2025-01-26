@@ -27,4 +27,4 @@ MonoBehaviour:
     score: 2
     specialMove: 0
     addsColor: 1
-    colorToAdd: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 1}
+    colorToAdd: {r: 0.45042518, g: 0.45042518, b: 0.45042518, a: 1}

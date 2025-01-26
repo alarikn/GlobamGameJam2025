@@ -8800,6 +8800,18 @@ PrefabInstance:
       propertyPath: dayEndScreenScript
       value: 
       objectReference: {fileID: 1524039261}
+    - target: {fileID: 1352858030164445026, guid: c71196d812a55d94a954cac688056fae, type: 3}
+      propertyPath: m_Color.b
+      value: 0.28635636
+      objectReference: {fileID: 0}
+    - target: {fileID: 1352858030164445026, guid: c71196d812a55d94a954cac688056fae, type: 3}
+      propertyPath: m_Color.g
+      value: 0.36839595
+      objectReference: {fileID: 0}
+    - target: {fileID: 1352858030164445026, guid: c71196d812a55d94a954cac688056fae, type: 3}
+      propertyPath: m_Color.r
+      value: 0.4245283
+      objectReference: {fileID: 0}
     - target: {fileID: 3543302959881719652, guid: c71196d812a55d94a954cac688056fae, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.164
