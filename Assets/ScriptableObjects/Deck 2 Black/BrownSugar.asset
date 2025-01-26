@@ -18,13 +18,13 @@ MonoBehaviour:
     ingredientName: Brown Sugar
     combination_name: Brown Sugar
     ingredientType: 3
-    ingredientLand: 2
+    ingredientLand: 1
     funnyDescription: Help! My sugar has gone bad!
     powerType: 0
     countType: 0
     ingredientTarget: 0
     landTarget: 0
-    score: 1
-    specialMove: 3
+    score: 2
+    specialMove: 0
     addsColor: 0
     colorToAdd: {r: 0.122641504, g: 0.02317586, b: 0.015619437, a: 0}

@@ -22,9 +22,9 @@ MonoBehaviour:
     funnyDescription: One cup a day keeps the doctor away.
     powerType: 0
     countType: 0
-    ingredientTarget: 0
+    ingredientTarget: 2
     landTarget: 2
-    score: 1
-    specialMove: 4
+    score: 2
+    specialMove: 0
     addsColor: 1
     colorToAdd: {r: 1.5157166, g: 0.49988687, b: 0, a: 1}
