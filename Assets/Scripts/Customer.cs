@@ -49,6 +49,16 @@ public class Customer : MonoBehaviour
         // Get a random required score
         required_score = Random.Range((day - 1) * 10, day * 20);
 
+        if (lastScore > required_score)
+        {
+            var mov = Math.Clamp(Random.value * 0.75f, 0.15f, 0.75f);
+            var tow = Mathf.Lerp((float)required_score, (float)lastScore, mov);
+            tow += required_score / 10;
+            required_score = (int)tow;
+
+            Debug.Log("Bussin");
+        }
+
         // Update thought bubble with the new order
         ThoughtBubble.newOrder(preferred_ingredients, required_score);
     }
@@ -57,6 +67,7 @@ public class Customer : MonoBehaviour
     {
         // Update thought bubble visuals
         yield return StartCoroutine(ThoughtBubble.CheckOrder(addedIngredients, base_score, visualizer));
+        lastScore = ThoughtBubble.FinalScore;
         if (ThoughtBubble.FinalScore < required_score)
         {
             Failed = true;

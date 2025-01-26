@@ -30,7 +30,7 @@ public class CupBehavior : MonoBehaviour
     private void Start()
     {
         liquidBehaviour = GetComponent<LiquidBehaviour>();
-        livesT.text = lives.ToString();
+        UpdateLives(0);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -166,11 +166,9 @@ public class CupBehavior : MonoBehaviour
         ScoreManager.Instance.ResetScoring();
         ScoreManager.Instance.ShowFinalScoring(false);
 
-        if (customer_number >= customers_in_a_day)
         if (current_customer.Failed)
         {
-            lives -= 1;
-            livesT.text = lives.ToString();
+            UpdateLives(-1);
         }
         if (lives > 0)
         {
@@ -186,6 +184,7 @@ public class CupBehavior : MonoBehaviour
                 current_customer.ThoughtBubble.gameObject.SetActive(false);
                 day++;
                 dayEndScreenScript.EndDay(day);
+                UpdateLives(1);
             }
             else
             {
@@ -198,6 +197,12 @@ public class CupBehavior : MonoBehaviour
             Debug.Log("Death");
         }
 
+    }
+
+    private void UpdateLives(int add)
+    {
+        lives += add;
+        livesT.text = lives.ToString();
     }
 
     private IEnumerator DrinkFinishedAudio()
