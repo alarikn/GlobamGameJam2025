@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -25,6 +26,12 @@ public class InventoryManager : MonoBehaviour
 
     public void Start()
     {
+        StartCoroutine(StartSequence());
+    }
+
+    private IEnumerator StartSequence()
+    {
+        yield return new WaitForSeconds(1.0f);
         currentDeck = CreateBaseDeck();
 
         ShuffleIntoRemainingCards(CurrentDeck);
