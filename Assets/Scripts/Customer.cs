@@ -10,6 +10,7 @@ public class Customer : MonoBehaviour
     //[SerializeField] private IngredientManager ingredientManager;
     [SerializeField] private InventoryManager inventoryManager;
     [SerializeField] private ThoughtBubble thoughtBubble;
+    [SerializeField] private int lastScore;
 
     private CustomerVisualizer visualizer;
     public CustomerVisualizer Visualizer { get { return visualizer; } }
@@ -18,6 +19,8 @@ public class Customer : MonoBehaviour
     [SerializeField] private int how_many_days_for_more_preferences = 3;
     public int required_score = 0;
 
+    public bool Failed { get; private set; }
+
     public void Start()
     {
         visualizer = GetComponent<CustomerVisualizer>();
@@ -25,6 +28,7 @@ public class Customer : MonoBehaviour
 
     public void newOrder(int day)
     {
+        Failed = false;
         visualizer.SpawnCustomerVisuals();
 
         // Create a list of the possible Ingredients
@@ -53,11 +57,15 @@ public class Customer : MonoBehaviour
     {
         // Update thought bubble visuals
         yield return StartCoroutine(ThoughtBubble.CheckOrder(addedIngredients, base_score, visualizer));
+        if (ThoughtBubble.FinalScore < required_score)
+        {
+            Failed = true;
+        }
     }
+
 
     public void TriggerMindControl(int count)
     {
-        Debug.Log("Mind Control");
         var randomIngredients = inventoryManager.CurrentDeck.OrderBy(x => Guid.NewGuid()).ToList();
         var preference = ThoughtBubble.OrderPreference;
         int index = Random.Range(0, preference.Count);

@@ -13,9 +13,12 @@ public class ThoughtBubble : MonoBehaviour
     [SerializeField] private Transform orderParent;
     [SerializeField] private GameObject preferredOrderPrefab;
     [SerializeField] private List<OrderPreference> orderPreferences;
+    [SerializeField] private Customer customer;
 
     public List<Ingredient> OrderPreference => OrderPreferences.Select(x => x.Ingredient).ToList();
     public List<OrderPreference> OrderPreferences { get => orderPreferences; set => orderPreferences = value; }
+
+    public int FinalScore { get; private set; }
 
     //[SerializeField] private 
 
@@ -89,6 +92,8 @@ public class ThoughtBubble : MonoBehaviour
 
             customerVisualizer.CustomerDisappointed();
         }
+
+        FinalScore = (int)multiplied_score;
     }
 
     public void HideMultipliedScoreText()
