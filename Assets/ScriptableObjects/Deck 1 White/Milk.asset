@@ -18,7 +18,7 @@ MonoBehaviour:
     ingredientName: Milk
     combination_name: Milk
     ingredientType: 2
-    ingredientLand: 2
+    ingredientLand: 0
     funnyDescription: The fight between the milk and the orange juice was udder chaos.
     powerType: 0
     countType: 0
