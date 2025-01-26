@@ -72,7 +72,7 @@ public class ThoughtBubble : MonoBehaviour
                 //score_text.text = multiplied_score.ToString();
 
                 yield return new WaitForSeconds(0.5f);
-                ScoreManager.Instance.AddPreferenceMulti(current_multiplier);
+                
             }
             orderObj.SetSuccess(wasUsed);
         }
@@ -97,6 +97,7 @@ public class ThoughtBubble : MonoBehaviour
         }
 
         FinalScore = (int)multiplied_score;
+        ScoreManager.Instance.AddPreferenceMulti(FinalScore);
     }
 
     public void ResetColor()

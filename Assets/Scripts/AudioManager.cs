@@ -29,4 +29,18 @@ public class AudioManager : MonoBehaviour
             }
         }
     }
+
+    public void PlaySoundEffect(string soundName, float pitch)
+    {
+        foreach (var effect in effectList)
+        {
+            if (effect.soundName == soundName)
+            {
+                audioSource.pitch = pitch;
+
+                audioSource.volume = effect.volume;
+                audioSource.PlayOneShot(effect.soundClip);
+            }
+        }
+    }
 }

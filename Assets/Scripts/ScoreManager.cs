@@ -95,27 +95,33 @@ public class ScoreManager : MonoBehaviour
 
     public void AddScoreToFinal()
     {
+        finalTemp = finalScore;
         baseScoreAnimator.Play("ResetScore",0,0);
         finalScoreAnimator.Play("AddScore", 0, 0);
-        baseScoreTMP.text = 0.ToString();
+        //baseScoreTMP.text = 0.ToString();
         finalScore = baseScore;
         StartCoroutine(AddFinalBehaviour());
+        AudioManager.Instance.PlaySoundEffect("ScoreFinal", 0.9f);
     }
 
     public void AddMultiToFinal()
     {
+        finalTemp = finalScore;
         multiScoreAnimator.Play("ResetScore", 0, 0);
         finalScoreAnimator.Play("AddScore", 0, 0);
-        multiScoreTMP.text = "X" + 1.ToString();
+        //multiScoreTMP.text = "X" + 1.ToString();
         finalScore = baseScore * multiScore;
         StartCoroutine(AddFinalBehaviour());
+        AudioManager.Instance.PlaySoundEffect("ScoreFinal", 1.0f);
     }
 
-    public void AddPreferenceMulti(float multiplier)
+    public void AddPreferenceMulti(int multiplier)
     {
-        finalScore = (int)(finalScore * multiplier);
+        finalTemp = finalScore;
+        finalScore = multiplier;
         finalScoreAnimator.Play("AddScore", 0, 0);
         StartCoroutine(AddFinalBehaviour());
+        AudioManager.Instance.PlaySoundEffect("ScoreFinal", 1.1f);
     }
 
     private IEnumerator AddFinalBehaviour()

@@ -89,6 +89,7 @@ public class CustomerVisualizer : MonoBehaviour
         var animator = thoughBubbleVisuals.GetComponent<Animator>();
         thoughBubbleVisuals.SetActive(true);
         animator.Play("SpawnBubble");
+        AudioManager.Instance.PlaySoundEffect("ThoughtBubble");
         yield return new WaitForSeconds(0.5f);
 
         foreach(var element in thoughtBubbleDisablables)

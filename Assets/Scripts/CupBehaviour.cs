@@ -142,15 +142,16 @@ public class CupBehavior : MonoBehaviour
             scoring.add += add;
             scoring.multi += multi;
 
+            AudioManager.Instance.PlaySoundEffect("ScoreAdd", 0.8f + (scoredIngs * 0.05f));
             ScoreManager.Instance.AddScoring(add, multi);
 
             //scoringT.text = $"{scoring.add} x {scoring.multi}";
-            yield return new WaitForSeconds(0.6f);
+            yield return new WaitForSeconds(0.35f);
         }
 
         yield return new WaitForSeconds(1.0f);
         ScoreManager.Instance.AddScoreToFinal();
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.4f);
         ScoreManager.Instance.AddMultiToFinal();
         var score = scoring.add * scoring.multi;
         //scoringT.text = $"{scoring.add} x {scoring.multi} = {score}";

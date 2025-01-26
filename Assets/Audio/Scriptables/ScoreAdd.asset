@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3c2283c2571e8144be6e41acb5e4d75, type: 3}
-  m_Name: HappyCustomer
+  m_Name: ScoreAdd
   m_EditorClassIdentifier: 
-  soundName: HappyCustomer
-  soundClip: {fileID: 8300000, guid: 1b9e6dd33d4a1d1468323e4f8407a52b, type: 3}
+  soundName: ScoreAdd
+  soundClip: {fileID: 8300000, guid: d7b9102a803a0d7439c538d060c62cc8, type: 3}
   volume: 0.3
-  randomizePitch: 0
+  randomizePitch: 1
