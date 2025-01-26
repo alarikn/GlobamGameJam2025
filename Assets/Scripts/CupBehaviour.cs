@@ -90,6 +90,7 @@ public class CupBehavior : MonoBehaviour
                 {
                     added.IngredientLand = ing.LandTarget;
                 }
+                drinkNameGenerator.ChangeColors();
                 break;
             default:
                 break;
