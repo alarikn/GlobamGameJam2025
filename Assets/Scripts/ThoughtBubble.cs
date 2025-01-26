@@ -98,6 +98,11 @@ public class ThoughtBubble : MonoBehaviour
         FinalScore = (int)multiplied_score;
     }
 
+    public void ResetColor()
+    {
+        requiredScoreT.color = Color.black;
+    }
+
     public void HideMultipliedScoreText()
     {
         //score_text.gameObject.SetActive(false);

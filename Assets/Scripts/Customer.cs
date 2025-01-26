@@ -30,6 +30,7 @@ public class Customer : MonoBehaviour
     {
         Failed = false;
         visualizer.SpawnCustomerVisuals();
+        thoughtBubble.ResetColor();
 
         // Create a list of the possible Ingredients
         List<Ingredient> possible_ingredients = new List<Ingredient>();
@@ -51,7 +52,7 @@ public class Customer : MonoBehaviour
 
         if (lastScore > required_score)
         {
-            var mov = Math.Clamp(Random.value * 0.75f, 0.15f, 0.75f);
+            var mov = Math.Clamp(Random.value * 0.75f, 0.35f, 0.75f);
             var tow = Mathf.Lerp((float)required_score, (float)lastScore, mov);
             tow += required_score / 10;
             required_score = (int)tow;
