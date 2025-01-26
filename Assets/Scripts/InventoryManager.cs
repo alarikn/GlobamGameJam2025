@@ -12,6 +12,7 @@ public class InventoryManager : MonoBehaviour
 
     [SerializeField] private List<Ingredient> currentDeck = new List<Ingredient>();
     [SerializeField] private int spawnCount = 4;
+    [SerializeField] private CupBehavior cupBehavior;
 
     private List<Ingredient> remainingIngredients = new List<Ingredient>();
     private List<Ingredient> discardedIngredients = new List<Ingredient>();
@@ -83,7 +84,10 @@ public class InventoryManager : MonoBehaviour
     {
         var spawnedItems = new List<Ingredient>();
 
-        if (count == 6) AudioManager.Instance.PlaySoundEffect("SpawnIngredients");
+        if (count == 6)
+        {
+            AudioManager.Instance.PlaySoundEffect("SpawnIngredients");
+        }
 
         for (int i = 0; i < count; i++)
         {

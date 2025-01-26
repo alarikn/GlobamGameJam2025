@@ -9,6 +9,7 @@ public class InventorySpawn : MonoBehaviour
     [SerializeField] private List<IngredientBehavior> spawned = new();
     [SerializeField] private Transform drawSpawn;
     [SerializeField] private float spawnDelay = 0.5f;
+    [SerializeField] private CupBehavior cupBehavior;
 
     Coroutine routine = null;
 
@@ -32,6 +33,7 @@ public class InventorySpawn : MonoBehaviour
 
     public IEnumerator SpawnIngredientsRoutine(List<Ingredient> ingredients, Transform spawn = null)
     {
+        cupBehavior.Trigger.enabled = false;
         for (int i = 0; i < ingredients.Count; i++)
         {
             var ingredient = ingredients[i];
@@ -47,7 +49,7 @@ public class InventorySpawn : MonoBehaviour
             Spawned.Add(ing);
             yield return new WaitForSeconds(spawnDelay);
         }
-
+        cupBehavior.Trigger.enabled = true;
         routine = null;
     }
 }

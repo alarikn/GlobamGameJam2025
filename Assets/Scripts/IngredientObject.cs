@@ -101,7 +101,7 @@ public class Ingredient
                 case SpecialMove.MindControl:
                     return $"<b>Change {Score}</b> random customer <b>preferences</b>";
                 case SpecialMove.Toxic:
-                    return $"All ingredients in drink counts as {LandTarget.ToString()} land";
+                    return $"All ingredients in drink turn to {LandTarget.ToString()} land";
             }
         }
 

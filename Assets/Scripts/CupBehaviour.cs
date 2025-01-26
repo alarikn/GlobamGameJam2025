@@ -11,6 +11,8 @@ public class CupBehavior : MonoBehaviour
     [SerializeField] private TMP_Text scoringT;
     [SerializeField] private InventoryManager inventoryManager;
     [SerializeField] private Animator cupAnimator;
+    [SerializeField] private int lives = 5;
+    [SerializeField] private TMP_Text livesT;
 
     [SerializeField] private Customer current_customer;
     [SerializeField] private DrinkNameGenerator drinkNameGenerator;
@@ -21,6 +23,9 @@ public class CupBehavior : MonoBehaviour
     private LiquidBehaviour liquidBehaviour;
     [SerializeField] StoreScript storeScript;
     [SerializeField] DayEndScreenScript dayEndScreenScript;
+    [SerializeField] private GameObject deathScreen;
+
+    public Collider Trigger { get => trigger; }
 
     private void Start()
     {
@@ -41,6 +46,7 @@ public class CupBehavior : MonoBehaviour
 
             var last = addedIngredients.Count + 1 > 3;
             CheckSpecial(ing, last);
+
 
             addedIngredients.Add(ing);
             drinkNameGenerator.addedIngredient(ing);
@@ -68,7 +74,7 @@ public class CupBehavior : MonoBehaviour
 
     public void CheckScore()
     {
-        trigger.enabled = false;
+        Trigger.enabled = false;
         StartCoroutine(CheckScoreRoutine());
     }
 
@@ -84,6 +90,7 @@ public class CupBehavior : MonoBehaviour
                 {
                     added.IngredientLand = ing.LandTarget;
                 }
+                drinkNameGenerator.ChangeColors();
                 break;
             default:
                 break;
@@ -140,24 +147,37 @@ public class CupBehavior : MonoBehaviour
         yield return wait;
 
         yield return StartCoroutine(current_customer.checkOrder(addedIngredients, score));
-
-        yield return new WaitForSeconds(1.0f);
-        drinkNameGenerator.clearWords();
-        cupAnimator.Play("ServeDrink", 0, 0);
-        yield return wait;
-        current_customer.Visualizer.RemoveCustomerVisuals();
-        yield return wait;
-
-        if (customer_number >= customers_in_a_day)
+        if (current_customer.Failed)
         {
-            current_customer.ThoughtBubble.gameObject.SetActive(false);
-            day++;
-            dayEndScreenScript.EndDay(day);
+            lives -= 1;
+            livesT.text = lives.ToString();
+        }
+        if (lives > 0)
+        {
+            yield return new WaitForSeconds(1.0f);
+            drinkNameGenerator.clearWords();
+            cupAnimator.Play("ServeDrink", 0, 0);
+            yield return wait;
+            current_customer.Visualizer.RemoveCustomerVisuals();
+            yield return wait;
+
+            if (customer_number >= customers_in_a_day)
+            {
+                current_customer.ThoughtBubble.gameObject.SetActive(false);
+                day++;
+                dayEndScreenScript.EndDay(day);
+            }
+            else
+            {
+                NewCustomer(false);
+            }
         }
         else
         {
-            NewCustomer(false);
+            deathScreen.SetActive(true);
+            Debug.Log("Death");
         }
+
     }
 
     private IEnumerator DrinkFinishedAudio()
@@ -186,7 +206,7 @@ public class CupBehavior : MonoBehaviour
         current_customer.ThoughtBubble.HideMultipliedScoreText();
         current_customer.newOrder(day);
         inventoryManager.SpawnNewIngredients();
-        trigger.enabled = true;
+        //Trigger.enabled = true;
         AudioManager.Instance.PlaySoundEffect("SpawnIngredients");
         cupAnimator.Play("Idle", 0, 0);
         liquidBehaviour.ResetLiquid();
